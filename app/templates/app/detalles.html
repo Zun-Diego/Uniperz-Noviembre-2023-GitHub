@@ -1,0 +1,1810 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+      $('.slider').bxSlider({
+          mode: 'fade',//horizontal, vertical, fade
+          auto: true,
+          pause: 2000
+      });
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+{% endblock %}
+
+{% block contenido %}
+
+<!--
+<div class="slider">
+    <div>
+        <img src="{% static 'app/img/banner/banner1.png' %}" alt="">
+    </div>
+    <div>
+        <img src="{% static 'app/img/banner/banner2.png' %}" alt="">
+    </div>
+    <div>
+        <img src="{% static 'app/img/banner/banner3.png' %}" alt="">
+    </div>
+</div>
+-->
+
+{% load humanize %}
+{% load customhtml %}
+
+
+{% if campana.cam_imagen %}
+
+            
+<div style="width:100%;padding-left: 0px;height: 526px;">
+
+    <div class="contenedor" style="width: 100%;">
+        <img src="{{ campana.cam_imagen.url }}"
+        
+        style="width: 100%;
+        height: 300px;
+        object-fit: cover;
+        object-position: center;
+        height: 526px;" 
+        />
+        
+        
+
+    </div>
+
+
+</div> 
+
+{% endif %}
+
+
+<div style="height:150px;
+margin-left: 20px;">
+    <div class="" style="display: table;
+    border-collapse : collapse;
+    width: 100%;
+    margin-left:0px;margin-top:12px;
+    ">
+
+
+        <div class="" style="display: table-cell;
+        width: 20%;text-align: left;
+        padding-left:0px;
+        
+        ">
+          <a href="javascript:history.go(-1);"> <img src="{% static 'app/img/plataforma_usuarios/Páginas/flecha-atras.svg' %}" style="width: 50px;margin-left:30px;" > </a>
+        </div>
+        <div class="" style="display: table-cell;
+        
+        width: 20%;text-align: left;
+        padding-left:0px;
+        ">
+            
+            {% if campana.cam_categoria.id == 1 %}
+            <img style="width: 70px;height: auto;" src="{% static 'app/img/plataforma_usuarios/Categorías/tecnologia.svg' %}" alt="" class="filteritgrisoscuro">
+            {% endif %}
+            {% if campana.cam_categoria.id == 2 %}
+            <img style="width: 70px;height: auto;" src="{% static 'app/img/plataforma_usuarios/Categorías/salud y belleza.svg' %}" alt="" class="filteritgrisoscuro">
+            {% endif %}
+            {% if campana.cam_categoria.id == 3 %}
+            <img style="width: 70px;height: auto;" src="{% static 'app/img/plataforma_usuarios/Categorías/gastronomia.svg' %}" alt="" class="filteritgrisoscuro">
+            {% endif %}
+            {% if campana.cam_categoria.id == 4 %}
+            <img style="width: 70px;height: auto;" src="{% static 'app/img/plataforma_usuarios/Categorías/deportes y outdoor.svg' %}" alt="" class="filteritgrisoscuro">
+            {% endif %}
+            {% if campana.cam_categoria.id == 5 %}
+            <img style="width: 70px;height: auto;" src="{% static 'app/img/plataforma_usuarios/Categorías/vestuario y calzado.svg' %}" alt="" class="filteritgrisoscuro">
+            {% endif %}
+            {% if campana.cam_categoria.id == 6 %}
+            <img style="width: 70px;height: auto;" src="{% static 'app/img/plataforma_usuarios/Categorías/mascotas.svg' %}" alt="" class="filteritgrisoscuro">
+            {% endif %}
+            {% if campana.cam_categoria.id == 7 %}
+            <img style="width: 70px;height: auto;" src="{% static 'app/img/plataforma_usuarios/Categorías/turismo y viajes.svg' %}" alt="" class="filteritgrisoscuro">
+            {% endif %}
+            {% if campana.cam_categoria.id == 8 %}
+            <img style="width: 70px;height: auto;" src="{% static 'app/img/plataforma_usuarios/Categorías/infantil.svg' %}" alt="" class="filteritgrisoscuro">
+            {% endif %}
+            
+        </div>
+        <div class="" style="display: table-cell;
+        width: 20%;text-align: center;
+        margin-left:0px;
+        ">
+            {% if color == 1 %}
+            <h3 style="color:#ff7300;font-weight: bold;">{{campana.cam_nombre}}, {{campana.cam_creador}}</h3>
+            {% elif color == 2 %}
+            <h3 style="color:#2d2d9a;font-weight: bold;">{{campana.cam_nombre}}, {{campana.cam_creador}}</h3>
+            {% else %}
+            <h3 style="color:#692bb0;font-weight: bold;">{{campana.cam_nombre}}, {{campana.cam_creador}}</h3>
+            {% endif %}
+          
+        </div>
+        <div class="" style="display: table-cell;
+        width: 20%;text-align: right;
+        ">
+          <div style=""><img style="width: 50px;height: auto;" src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/medallas-contador.svg' %}" alt="" class="filteritgrisoscuro"></div>
+        </div>
+        <div class="" style="display: table-cell;
+        width: 20%;text-align: right;
+        ">
+          <div style=""><img style="width:70 px;height: 70px;object-fit: cover;margin-right:10px;margin-top:-0px;" src="{{ marca.mar_imagen.url }}" alt="" class=""></div>
+        </div>
+        
+    </div>
+</div>
+
+<style>
+
+ 
+    
+</style>
+
+<div style="height:50px;
+margin-left: 20px;
+box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;">
+
+    <div style="display: flex;
+    justify-content: center;
+    height:100%;">
+
+        <div
+        style="
+        width:160px;
+        height:100%;
+        float: right;
+        margin-right:10px;
+        ">
+            <button id="boton1" onclick="mostrar1();" style="float: right;background-color: #fff;border: 0px;" >
+                {% if color == 1 %}
+                <h5 id="texto1"  style="float: right;color:#ff7300;font-weight: bold;margin-top:10px;margin-right:5px;margin-left:6px;font-size:18px;">Descripción</h5>
+                <img id="imagen1" style="float: right;width: 40px;height: auto;filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);" src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/desafios.svg' %}" alt="" class="filterit">
+                {% elif color == 2 %}
+                <h5 id="texto1"  style="float: right;color:#2d2d9a;font-weight: bold;margin-top:10px;margin-right:5px;margin-left:6px;font-size:18px;">Descripción</h5>
+                <img id="imagen1" style="float: right;width: 40px;height: auto;filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);" src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/desafios.svg' %}" alt="" >
+                {% else %}
+                <h5 id="texto1"  style="float: right;color:#692bb0;font-weight: bold;margin-top:10px;margin-right:5px;margin-left:6px;font-size:18px;">Descripción</h5>
+                <img id="imagen1" style="float: right;width: 40px;height: auto;" src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/desafios.svg' %}" alt="" class="filterit">
+                {% endif %}
+                
+            </button>
+        </div>
+
+        
+
+    </div>
+</div>
+
+<div style="height:60px;">
+
+</div>
+
+
+
+<div style="margin-left: 66px;margin-right: 50px;">
+
+    <div>
+
+        <div style="
+        float: left;
+        width: 49%;
+        height: 220px;
+        border-radius: 20px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;
+        position: relative;
+
+        ">
+            <div style="
+            display: block;
+            width: calc(27px + 50%);
+            height: 20px;
+            text-align: center;
+            position: relative;
+            float:left;
+            ">
+                <div style="
+                
+                position: relative;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                {% if color == 1 %}
+                background-color: #ff7300;
+                {% elif color == 2 %}
+                background-color: #2d2d9a;
+                {% else %}
+                background-color: #692bb0;
+                {% endif %}
+                border: 1px solid white;
+                text-align: right;
+                float:right;
+                margin-top:-25px;
+                ">
+
+                <img style="float: left;width: 40px;margin-left:5px;margin-top:7px;" src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/desafios.svg' %}" alt="" class="filteritblanco">
+                    
+                </div>
+
+                
+
+            </div>
+
+            
+            
+
+            <div style="
+            width: 100%;
+            height: 70px;
+            border-radius: 20px 20px 0px 0px;
+            {% if color == 1 %}
+            background-color: #ff7300;
+            {% elif color == 2 %}
+            background-color: #2d2d9a;
+            {% else %}
+            background-color: #692bb0;
+            {% endif %}
+            ">
+                <div style="">
+                    <div style="height:30px;">
+
+                    </div>
+                    <h5 style="color:#fff;font-weight: bold;text-align: center;">Desafíos</h5>
+                </div>
+            </div>
+
+
+
+            
+
+            <div style="text-align: center;">
+                <div style="margin-left:4%;margin-right:4%;top:50%;margin-top:20px;">
+                    <h5 style="color:grey;font-size:16px;">
+                        <p>{{campana.cam_creador}} te ha propuesto desafíos de interacción.</p>
+                        <p>En cada desafío existen acciones a realizar para acumular y conseguir medallas. Consíguelas, desbloquea desafíos y gana la recompensa de esta marca.</p>
+                    </h5>
+                </div>
+            </div>
+
+            
+
+            
+        </div>
+    </div>
+
+    
+
+    <!--CUADRO 2 DE 2-->
+
+    <div>
+
+        <div style="
+        float: left;
+        width: 49%;
+        margin-left: 2%;
+        height: 220px;
+        border-radius: 20px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;
+        position: relative;
+
+        ">
+            <div style="
+            display: block;
+            width: calc(27px + 50%);
+            height: 20px;
+            text-align: center;
+            position: relative;
+            float:left;
+            ">
+                <div style="
+                
+                position: relative;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                {% if color == 1 %}
+                background-color: #ff7300;
+                {% elif color == 2 %}
+                background-color: #2d2d9a;
+                {% else %}
+                background-color: #692bb0;
+                {% endif %}
+                border: 1px solid white;
+                text-align: right;
+                float:right;
+                margin-top:-25px;
+                ">
+
+                <img style="float: left;width: 40px;margin-left:4px;margin-top:7px;" src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/jugadores3.svg' %}" alt="" class="filteritblanco">
+                    
+                </div>
+
+                
+
+            </div>
+
+            
+            
+
+            <div style="
+            width: 100%;
+            height: 70px;
+            border-radius: 20px 20px 0px 0px;
+            {% if color == 1 %}
+            background-color: #ff7300;
+            {% elif color == 2 %}
+            background-color: #2d2d9a;
+            {% else %}
+            background-color: #692bb0;
+            {% endif %}
+            ">
+                <div style="">
+                    <div style="height:30px;">
+
+                    </div>
+                    <h5 style="color:#fff;font-weight: bold;text-align: center;">Número de jugadores</h5>
+                </div>
+            </div>
+
+
+            
+            <div style="text-align: center;">
+                <div style="display: flex;
+                justify-content: center;
+                margin-top: 20px;
+                height:100%;">
+
+                    
+
+                        <div
+                        style="
+                        height:100%;
+                        float: right;
+                        margin-right:0px;
+                        ">
+                            {% if color == 1 %}
+                            <h5 style="color:#ff7300;font-size:48px;font-weight: bold;float: right;">{{cantidad_jugadores}}</h5>
+                            {% elif color == 2 %}
+                            <h5 style="color:#2d2d9a;font-size:48px;font-weight: bold;float: right;">{{cantidad_jugadores}}</h5>
+                            {% else %}
+                            <h5 style="color:#692bb0;font-size:48px;font-weight: bold;float: right;">{{cantidad_jugadores}}</h5>
+                            {% endif %}
+                            
+                        </div>
+                        <div 
+                        style="width:2%;">
+
+                        </div>
+                        <div
+                        style="
+                        height:100%;
+                        float: left;
+                        margin-left:0px;
+                        margin-top:30px;
+                        ">  
+                            {% if cantidad_jugadores > 1 %}
+                            <h5 style="color:gray;font-size:24px;margin-top: -15px;float: left;">Jugadores activos</h5>
+                            {% endif %}
+                            {% if cantidad_jugadores == 1 %}
+                            <h5 style="color:gray;font-size:24px;margin-top: -15px;float: left;">Jugador activo</h5>
+                            {% endif %}
+                            {% if cantidad_jugadores == 0 %}
+                            <h5 style="color:gray;font-size:24px;margin-top: -15px;float: left;">Jugadores activos</h5>
+                            {% endif %}
+                        </div>
+                    
+                    
+                    
+                    
+                </div>
+
+                
+            </div>
+
+            {% if color == 1 %}
+            <div style="
+            bottom:0;
+            width: 100%;
+            height: 45px;
+            
+            background-color: #e6a688;
+            border-radius: 0px 0px 20px 20px;
+            position: absolute;
+            ">
+            {% elif color == 2 %}
+            <div style="
+            bottom:0;
+            width: 100%;
+            height: 45px;
+            
+            background-color: #889be6;
+            border-radius: 0px 0px 20px 20px;
+            position: absolute;
+            ">
+            {% else %}
+            <div style="
+            bottom:0;
+            width: 100%;
+            height: 45px;
+            
+            background-color: #a988e6;
+            border-radius: 0px 0px 20px 20px;
+            position: absolute;
+            ">
+            {% endif %}
+
+            
+                <h5 style="color:#fff;font-style: italic;text-align: center;font-size: 16px;margin-top:10px;">Jugadores participantes: {{total_jugadores}}  Recompensas canjeadas: {{campana.cam_cantidad_recompensas_canjeadas}}/{{campana.cam_cantidad_recompensas}}</h5>
+            </div>
+
+            
+
+            
+        </div>
+    </div>
+
+    <!--OTRO ESPACIO PARA SEPARAR-->
+
+    <div style="height:280px;">
+
+    </div>
+
+    
+
+    <!--ESPACIO PARA SEPARAR-->
+
+    
+
+    <!--CUADRO 1 DE 3-->
+
+    <div>
+
+        <div style="
+        float: left;
+        width: 32%;
+        height: 350px;
+        border-radius: 20px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;
+        
+
+        ">
+            <div style="
+            display: block;
+            width: calc(27px + 50%);
+            height: 20px;
+            text-align: center;
+            position: relative;
+            float:left;
+            ">
+                <div style="
+                
+                position: relative;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                {% if color == 1 %}
+                background-color: #ff7300;
+                {% elif color == 2 %}
+                background-color: #2d2d9a;
+                {% else %}
+                background-color: #692bb0;
+                {% endif %}
+                border: 1px solid white;
+                text-align: right;
+                float:right;
+                margin-top:-25px;
+                ">
+
+                <img style="float: left;width: 40px;margin-left:5px;margin-top:7px;" src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/recompensas.svg' %}" alt="" class="filteritblanco">
+                    
+                </div>
+
+                
+
+            </div>
+
+            
+            
+
+            <div style="
+            width: 100%;
+            height: 70px;
+            border-radius: 20px 20px 0px 0px;
+            {% if color == 1 %}
+            background-color: #ff7300;
+            {% elif color == 2 %}
+            background-color: #2d2d9a;
+            {% else %}
+            background-color: #692bb0;
+            {% endif %}
+            ">
+                <div style="">
+                    <div style="height:30px;">
+
+                    </div>
+                    <h5 style="color:#fff;font-weight: bold;text-align: center;">Recompensas</h5>
+                </div>
+            </div>
+
+
+
+            <div style="text-align: center;">
+                <div style="margin-left:4%;margin-right:4%;top:50%;margin-top:20px;">
+                    <h5 style="color:grey;font-size:16px;">
+                        <p>Consigue las medallas necesarias para optar por la recompensa:</p>
+                        <p></p>
+                    
+                    
+                    </h5>
+
+                    <div style="height:10px;">
+
+                    </div>
+                    {% if color == 1 %}
+                    <h5 style="color:#ff7300;font-size:18px;font-weight: bold;">
+                    {% elif color == 2 %}
+                    <h5 style="color:#2d2d9a;font-size:18px;font-weight: bold;">
+                    {% else %}
+                    <h5 style="color:#692bb0;font-size:18px;font-weight: bold;">
+                    {% endif %}
+                    
+                        
+                        {{campana.cam_nom_recompensa}}
+                        <!--
+                        <br>
+                        Regalo 2
+                        -->
+                    </h5>
+
+                    <div style="height:20px;">
+
+                    </div>
+                    <!--AQUI SE TIENE QUE PONER UN MODALS-->
+                    {% if color == 1 %}
+                    <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModalrecompensa" style="width:80%;font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#ff7300;border: 2px solid #ff7300;" value="Características" class="btn btn-primary" >
+
+                    {% elif color == 2 %}
+                    <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModalrecompensa" style="width:80%;font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#2d2d9a;border: 2px solid #2d2d9a;" value="Características" class="btn btn-primary" >
+
+                    {% else %}
+                    <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModalrecompensa" style="width:80%;font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#692bb0;border: 2px solid #692bb0;" value="Características" class="btn btn-primary" >
+
+                    {% endif %}
+                    
+                    <!-- Modal -->
+
+                    
+
+                    <div class="modal fade" id="exampleModalrecompensa" tabindex="-1" aria-labelledby="exampleModalrecompensaLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" style="border-radius: 20px;">
+                        <div class="modal-content" style="border-radius: 20px;">
+                            
+                            <div class="" style="height: 120%">
+
+                                <div style="border-radius: 20px 0px 0px 20px;width:40%;height: 120%;float:left;">
+                                    <div>
+                                        <img style="border-radius: 20px 0px 0px 20px;width: 100%;object-fit: cover;object-position: center;height:400px;" src="{{campana.cam_imagen_recompensa.url}}" alt="">
+                                
+                                    </div>
+                                </div>
+                                
+                                <div style="border-radius: 0px 20px 20px 0px;width:60%;height: 120%;float:left;">
+
+                                    <div class="" style="padding:10px;width:100%;height:40px;">
+                                
+                                        <button style="float:right;" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <h5 style="padding-left:40px;padding-right:40px;
+                                    {% if color == 1 %}
+                                    color: #ff7300;
+                                    {% elif color == 2 %}
+                                    color: #2d2d9a;
+                                    {% else %}
+                                    color: #692bb0;
+                                    {% endif %}
+                                    text-align: left;font-size: 26px;font-weight: bold;">{{campana.cam_nom_recompensa | capfirst}}</h5>
+                                    <h5 style="padding-left:40px;padding-right:40px;color: gray;text-align: left;font-size: 14px;font-style: italic;" >{{campana.cam_descripcion_recompensa | capfirst}}</h5>
+                                    
+                                    <div style="height:10px;">
+
+                                    </div>
+
+                                    <h5 style="padding-left:40px;padding-right:40px;
+                                    {% if color == 1 %}
+                                    color: #ff7300;
+                                    {% elif color == 2 %}
+                                    color: #2d2d9a;
+                                    {% else %}
+                                    color: #692bb0;
+                                    {% endif %}
+                                    text-align: left;font-size: 14px;font-weight: bold;">Características:</h5>
+                                    <h5 style="padding-left:40px;padding-right:40px;color: gray;text-align: left;font-size: 14px;" >{{campana.cam_caracteristicas_recompensa | capfirst}}</h5>
+                                    
+                                    <div style="height:10px;">
+
+                                    </div>
+                                    
+                                    <div style="padding-left:40px;">
+
+                                        <input type="button" onclick="window.open('{{campana.cam_link_recompensa}}');" style="width:40%;font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;
+                                        {% if color == 1 %}
+                                        color: #ff7300;border: 2px solid #ff7300;
+                                        {% elif color == 2 %}
+                                        color: #2d2d9a;border: 2px solid #2d2d9a;
+                                        {% else %}
+                                        color: #692bb0;border: 2px solid #692bb0;
+                                        {% endif %}
+                                        
+                                        float: left;" value="Más información" class="btn btn-primary" >
+                                        
+                                    </div>
+
+                                    
+                                </div>
+                            
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div> 
+                    
+
+                    
+
+                    
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+
+    <!--CUADRO 2 DE 3-->
+
+    <div>
+
+        <div style="
+        margin-left:2%;
+        float: left;
+        width: 32%;
+        height: 350px;
+        border-radius: 20px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;
+        
+
+        ">
+            <div style="
+            display: block;
+            width: calc(27px + 50%);
+            height: 20px;
+            text-align: center;
+            position: relative;
+            float:left;
+            ">
+                <div style="
+                
+                position: relative;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                {% if color == 1 %}
+                background-color: #ff7300;
+                {% elif color == 2 %}
+                background-color: #2d2d9a;
+                {% else %}
+                background-color: #692bb0;
+                {% endif %}
+                border: 1px solid white;
+                text-align: right;
+                float:right;
+                margin-top:-25px;
+                ">
+
+                <img style="float: left;width: 40px;margin-left:5px;margin-top:5px;" src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/medallas.svg' %}" alt="" class="filteritblanco">
+                    
+                </div>
+
+                
+
+            </div>
+
+            
+            
+
+            <div style="
+            width: 100%;
+            height: 70px;
+            border-radius: 20px 20px 0px 0px;
+            {% if color == 1 %}
+            background-color: #ff7300;
+            {% elif color == 2 %}
+            background-color: #2d2d9a;
+            {% else %}
+            background-color: #692bb0;
+            {% endif %}
+            ">
+                <div style="">
+                    <div style="height:30px;">
+
+                    </div>
+                    <h5 style="color:#fff;font-weight: bold;text-align: center;">Medallas</h5>
+                    
+                    
+
+                </div>
+                
+            </div>
+
+
+
+            <div style="text-align: center;">
+                <div style="margin-left:4%;margin-right:4%;top:50%;margin-top:20px;">
+                    <h5 style="
+                        {% if color == 1 %}
+                        color: #ff7300;border: 0px solid #ff7300;
+                        {% elif color == 2 %}
+                        color: #2d2d9a;border: 0px solid #2d2d9a;
+                        {% else %}
+                        color: #692bb0;border: 0px solid #692bb0;
+                        {% endif %}
+                        font-size:48px;font-weight: bold;">{{campana.cam_medallas}}</h5>
+                    <h5 style="color:gray;font-size:24px;margin-top: -15px;">Medallas</h5>
+                    <div style="height:15px;">
+
+                    </div>
+                    <h5 style="color:grey;font-size:16px;">
+                        <p>Cada acción te permitirá conseguir un número determinado de medallas</p>
+                        
+                    
+                    
+                    </h5>
+                </div>
+
+                
+            </div>
+
+        </div>
+    </div>
+
+    
+
+    <!--CUADRO 3 DE 3-->
+
+    <div>
+
+        <div style="
+        margin-left:2%;
+        float: left;
+        width: 32%;
+        height: 350px;
+        border-radius: 20px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;
+        
+        
+
+        ">
+            <div style="
+            display: block;
+            width: calc(27px + 50%);
+            height: 20px;
+            text-align: center;
+            position: relative;
+            float:left;
+            ">
+                <div style="
+                
+                position: relative;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                {% if color == 1 %}
+                background-color: #ff7300;
+                {% elif color == 2 %}
+                background-color: #2d2d9a;
+                {% else %}
+                background-color: #692bb0;
+                {% endif %}
+                border: 1px solid white;
+                text-align: right;
+                float:right;
+                margin-top:-25px;
+                ">
+
+                <img style="float: left;width: 40px;margin-left:5px;margin-top:5px;" src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/duracion.svg' %}" alt="" class="filteritblanco">
+                    
+                </div>
+
+                
+
+            </div>
+
+            
+            
+
+            <div style="
+            width: 100%;
+            height: 70px;
+            border-radius: 20px 20px 0px 0px;
+            {% if color == 1 %}
+                background-color: #ff7300;
+                {% elif color == 2 %}
+                background-color: #2d2d9a;
+                {% else %}
+                background-color: #692bb0;
+                {% endif %}
+            ">
+                <div style="">
+                    <div style="height:30px;">
+
+                    </div>
+                    <h5 style="color:#fff;font-weight: bold;text-align: center;">Duración</h5>
+                </div>
+            </div>
+
+
+
+            <div style="text-align: center;">
+                <div style="margin-left:4%;margin-right:4%;top:50%;margin-top:20px;">
+                    {% if campana.cam_dias == 1 %}
+                        <h5 style="
+                        {% if color == 1 %}
+                        color: #ff7300;border: 0px solid #ff7300;
+                        {% elif color == 2 %}
+                        color: #2d2d9a;border: 0px solid #2d2d9a;
+                        {% else %}
+                        color: #692bb0;border: 0px solid #692bb0;
+                        {% endif %}
+                        font-size:48px;font-weight: bold;">{{campana.cam_dias}}</h5>
+                        <h5 style="color:gray;font-size:24px;margin-top: -15px;">Día</h5>
+                    {% else %}
+                        <h5 style="
+                        {% if color == 1 %}
+                        color: #ff7300;border: 0px solid #ff7300;
+                        {% elif color == 2 %}
+                        color: #2d2d9a;border: 0px solid #2d2d9a;
+                        {% else %}
+                        color: #692bb0;border: 0px solid #692bb0;
+                        {% endif %}
+                        font-size:48px;font-weight: bold;">{{campana.cam_dias}}</h5>
+                        <h5 style="color:gray;font-size:24px;margin-top: -15px;">Días</h5>
+                    {% endif %}
+                    <div style="height:15px;">
+
+                    </div>
+                    <h5 style="color:grey;font-size:16px;">
+                        <p>Puedes hacer cada acción entre sus días designados, y lograr completarlos antes del tiempo límite</p>
+                        
+                    
+                    
+                    </h5>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--ESPACIO PARA SEPARAR-->
+
+    <div style="height:410px;">
+
+    </div>
+    
+
+    <!--CUADRO 1 DE 2-->
+
+    <div>
+
+        <div style="
+        float: left;
+        width: 66%;
+        height: 350px;
+        border-radius: 20px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;
+        position: relative;
+
+        ">
+            <div style="
+            display: block;
+            width: calc(27px + 50%);
+            height: 20px;
+            text-align: center;
+            position: relative;
+            float:left;
+            ">
+                <div style="
+                
+                position: relative;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                {% if color == 1 %}
+                background-color: #ff7300;
+                {% elif color == 2 %}
+                background-color: #2d2d9a;
+                {% else %}
+                background-color: #692bb0;
+                {% endif %}
+                border: 1px solid white;
+                text-align: right;
+                float:right;
+                margin-top:-25px;
+                ">
+
+                <img style="float: left;width: 40px;margin-left:5px;margin-top:7px;" src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/acciones.svg' %}" alt="" class="filteritblanco">
+                    
+                </div>
+
+                
+
+            </div>
+
+            
+            
+
+            <div style="
+            width: 100%;
+            height: 70px;
+            border-radius: 20px 20px 0px 0px;
+            {% if color == 1 %}
+            background-color: #ff7300;
+            {% elif color == 2 %}
+            background-color: #2d2d9a;
+            {% else %}
+            background-color: #692bb0;
+            {% endif %}
+            ">
+                <div style="">
+                    <div style="height:30px;">
+
+                    </div>
+                    <h5 style="color:#fff;font-weight: bold;text-align: center;">Acciones</h5>
+                </div>
+            </div>
+
+
+
+            <table class="table table-hover table-responsive-sm" style="" >
+
+                <tr style="
+                    {% if color == 1 %}
+                    background-color: #e6a688;
+                    {% elif color == 2 %}
+                    background-color: #889be6;
+                    {% else %}
+                    background-color: #a988e6;
+                    {% endif %}
+                    color: #fff ;
+                    height: 45px;
+                    padding-top: 10px;
+                    ;" >
+
+                    <th style="color:#fff;padding-left: 10px;"><img 
+                        src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/desafios.svg' %}"
+                        style="width:25px;margin-right:5px;" class="filteritblanco" alt="">Desafíos</th>
+                    <th style="color:#fff;"><img 
+                        src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/medallas.svg' %}"
+                        style="width:25px;margin-right:5px;" class="filteritblanco" alt="">Medallas</th>
+                    <th style="color:#fff;"><img 
+                        src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/dias.svg' %}"
+                        style="width:25px;margin-right:5px;" class="filteritblanco" alt="">Días</th>
+                    <th></th>
+                    <th style="color:#fff;padding-right: 10px;"><img 
+                        src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/realizado-no realizado.svg' %}"
+                        style="width:25px;margin-right:5px;" class="filteritblanco" alt=""></th>
+                </tr>
+
+                {% if interaccion_activa == True %}
+
+                    {% for desafio in lista_inter %}
+                    {% with previous_element=lista_inter|previous:forloop.counter0 %}
+
+                        <tr>
+                            {% if desafio.3 == True %}
+
+                            <td style="color:#55b731;"><img 
+                                src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/desafios.svg' %}"
+                                style="width:25px;margin-right:5px;" class="filteritverde" alt="">{{desafio.0}}</td>
+                            <td style="color:#55b731;"><img 
+                                src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/medallas.svg' %}"
+                                style="width:25px;margin-right:5px;" class="filteritverde" alt="">{{desafio.1}} Medallas</td>
+                            
+                            {% endif %}
+                            {% if desafio.3 == False %}
+
+                            <td style="color:gray;"><img 
+                                src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/desafios.svg' %}"
+                                style="width:25px;margin-right:5px;" class="filteritgrisoscuro" alt="">{{desafio.0}}</td>
+                            <td style="color:gray;"><img 
+                                src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/medallas.svg' %}"
+                                style="width:25px;margin-right:5px;" class="filteritgrisoscuro" alt="">{{desafio.1}} Medallas</td>
+                            
+                            {% endif %}
+                            {% if desafio.2 == 1 %}
+                                {% if desafio.3 == True %}
+                                <td style="color:#55b731;"><img 
+                                    src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/dias.svg' %}"
+                                    style="width:25px;margin-right:5px;" class="filteritverde" alt=""> {{desafio.2}} Día</td>
+                                {% endif %}
+                                {% if desafio.3 == False %}
+                                <td style="color:gray;"><img 
+                                    src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/dias.svg' %}"
+                                    style="width:25px;margin-right:5px;" class="filteritgrisoscuro" alt=""> {{desafio.2}} Día</td>
+                                {% endif %}
+
+                            {% else %}
+                                {% if desafio.3 == True %}
+                                <td style="color:#55b731;"><img 
+                                    src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/dias.svg' %}"
+                                    style="width:25px;margin-right:5px;" class="filteritverde" alt=""> {{desafio.2}} Días</td>
+                                {% endif %}
+                                {% if desafio.3 == False %}
+                                <td style="color:gray;"><img 
+                                    src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/dias.svg' %}"
+                                    style="width:25px;margin-right:5px;" class="filteritgrisoscuro" alt=""> {{desafio.2}} Días</td>
+                                {% endif %}
+                            {% endif %}
+                            
+
+                            {% if desafio.3 == False and previous_element.3 == False %}
+                                <td style="color:gray;"><img 
+                                    src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/bloqueado.svg' %}"
+                                    style="width:25px;margin-right:5px;" class="filteritgrisoscuro" alt=""></td>
+
+                                <td><a  class="btn btn-info btn-sm" style="width:120px;font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#d3d3d3;color:#878787;border: 2px solid #d3d3d3;">Bloqueado</a></td>
+                            {% elif desafio.3 == False and previous_element.3 == None %}
+                                {% if desafio.4 < hoy and hoy < desafio.5 %}
+
+                                    <td style="color:gray;"><img 
+                                        src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/desbloqueado.svg' %}"
+                                        style="width:25px;margin-right:5px;" class="filteritgrisoscuro" alt=""></td>
+
+                                    {% if desafio.0 == 'Calificar' %}
+                                    <td><a href="{% url 'desafio1' campana.slug %}" class="btn btn-info btn-sm" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">Desbloqueado</a></td>
+                                    {% endif %}
+                                    {% if desafio.0 == 'Compartir' %}
+                                    <td><a href="{% url 'desafio2' campana.slug %}" class="btn btn-info btn-sm" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">Desbloqueado</a></td>
+                                    {% endif %}
+                                    {% if desafio.0 == 'Recomendar' %}
+                                    <td><a href="{% url 'desafio3' campana.slug %}" class="btn btn-info btn-sm" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">Desbloqueado</a></td>
+                                    {% endif %}
+                                    {% if desafio.0 == 'Encuesta' %}
+                                    <td><a href="{% url 'desafio4' campana.slug %}" class="btn btn-info btn-sm" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">Desbloqueado</a></td>
+                                    {% endif %}
+                                {% elif hoy > desafio.5 %}
+
+                                    <td style="color:gray;"><img 
+                                    src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/bloqueado.svg' %}"
+                                    style="width:25px;margin-right:5px;" class="filteritgrisoscuro" alt=""></td>
+
+                                    <td><a class="btn btn-danger btn-sm" style="border-radius: 20px;font-weight: bold;" >Desafío fuera de plazo</a></td>
+                                {% else %}
+
+                                    <td style="color:gray;"><img 
+                                    src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/desbloqueado.svg' %}"
+                                    style="width:25px;margin-right:5px;" class="filteritgrisoscuro" alt=""></td>
+
+                                    {% if desafio.0 == 'Calificar' %}
+                                    <td><a href="{% url 'desafio1' campana.slug %}" class="btn btn-info btn-sm" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">Desbloqueado</a></td>
+                                    {% endif %}
+                                    {% if desafio.0 == 'Compartir' %}
+                                    <td><a href="{% url 'desafio2' campana.slug %}" class="btn btn-info btn-sm" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">Desbloqueado</a></td>
+                                    {% endif %}
+                                    {% if desafio.0 == 'Recomendar' %}
+                                    <td><a href="{% url 'desafio3' campana.slug %}" class="btn btn-info btn-sm" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">Desbloqueado</a></td>
+                                    {% endif %}
+                                    {% if desafio.0 == 'Encuesta' %}
+                                    <td><a href="{% url 'desafio4' campana.slug %}" class="btn btn-info btn-sm" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">Desbloqueado</a></td>
+                                    {% endif %}
+                                {% endif %}
+                            {% else %}
+                                {% if desafio.3 == False and previous_element.3 == True %}
+
+                                    {% if desafio.4 < hoy and hoy < desafio.5 %}
+
+                                        <td style="color:gray;"><img 
+                                        src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/desbloqueado.svg' %}"
+                                        style="width:25px;margin-right:5px;" class="filteritgrisoscuro" alt=""></td>
+
+                                        {% if desafio.0 == 'Calificar' %}
+                                        <td><a href="{% url 'desafio1' campana.slug %}" class="btn btn-info btn-sm" style="width:120px;font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#d3d3d3;color:#878787;border: 2px solid #d3d3d3;">Desbloqueado</a></td>
+                                        {% endif %}
+                                        {% if desafio.0 == 'Compartir' %}
+                                        <td><a href="{% url 'desafio2' campana.slug %}" class="btn btn-info btn-sm" style="width:120px;font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#d3d3d3;color:#878787;border: 2px solid #d3d3d3;">Desbloqueado</a></td>
+                                        {% endif %}
+                                        {% if desafio.0 == 'Recomendar' %}
+                                        <td><a href="{% url 'desafio3' campana.slug %}" class="btn btn-info btn-sm" style="width:120px;font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#d3d3d3;color:#878787;border: 2px solid #d3d3d3;">Desbloqueado</a></td>
+                                        {% endif %}
+                                        {% if desafio.0 == 'Encuesta' %}
+                                        <td><a href="{% url 'desafio4' campana.slug %}" class="btn btn-info btn-sm" >Desbloqueado</a></td>
+                                        {% endif %}
+                                    {% elif hoy < desafio.4 %}
+                                        
+                                        <td style="color:gray;"><img 
+                                        src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/bloqueado.svg' %}"
+                                        style="width:25px;margin-right:5px;" class="filteritgrisoscuro" alt=""></td>
+
+                                        <td><a  class="btn btn-info btn-sm" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">Desbloqueado desde {{desafio.4}}</a></td>
+                                    {% else %}
+                                        <td style="color:gray;"><img 
+                                        src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/bloqueado.svg' %}"
+                                        style="width:25px;margin-right:5px;" class="filteritgrisoscuro" alt=""></td>
+
+                                        <td><a  class="btn btn-danger btn-sm" style="border-radius: 20px;font-weight: bold;">Desafío fuera de plazo</a></td>
+                                    {% endif %}
+                                {% endif %}
+
+                            {% endif %}
+                            {% if desafio.3 == True %}
+
+                            <td><img
+                                src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/completado.svg' %}"
+                                style="width:25px;margin-right:5px;" class="filteritverde" alt=""></td>
+
+                            <td><a class="btn btn-info btn-sm" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#55b731;color:#fff;border: 2px solid #55b731;">Realizado</a></td>
+                            {% endif %}
+
+                            
+                            
+                        </tr>
+                        
+
+                    {% endwith %}
+                    {% endfor %}
+                
+                {% endif %}
+                <!--CUANDO EL USUARIO NO COMIENZA LA INTERACCION DE LA CAMPAÑA-->
+                {% if interaccion_activa == False %}
+
+                    {% for desafio in lista_inter %}
+                    {% with previous_element=lista_inter|previous:forloop.counter0 %}
+                    
+                        <tr>
+                            <td style="color:gray;"><img 
+                                src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/desafios.svg' %}"
+                                style="width:25px;margin-right:5px;" class="filteritgrisoscuro" alt="">{{desafio.0}}</td>
+                            <td style="color:gray;"><img 
+                                src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/medallas.svg' %}"
+                                style="width:25px;margin-right:5px;" class="filteritgrisoscuro" alt="">{{desafio.1}} Medallas</td>
+                            {% if desafio.2 == 1 %}
+                            <td style="color:gray;"><img 
+                                src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/dias.svg' %}"
+                                style="width:25px;margin-right:5px;" class="filteritgrisoscuro" alt="">{{desafio.2}} Día</td>
+                            {% else %}
+                            <td style="color:gray;"><img 
+                                src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/dias.svg' %}"
+                                style="width:25px;margin-right:5px;" class="filteritgrisoscuro" alt="">{{desafio.2}} Días</td>
+                            {% endif %}
+                            <td><img 
+                                src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/bloqueado.svg' %}"
+                                style="width:25px;height: 25px;" class="filteritgrisoscuro" alt=""></td>
+                            <td><a class="btn btn-danger btn-sm" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#d3d3d3;color:#878787;border: 2px solid #d3d3d3;">Bloqueado</a></td>
+
+
+                        </tr>
+
+                    {% endwith %}
+                    {% endfor %}
+
+                
+                {% endif %}
+
+
+
+                
+            
+            </table>
+
+            <div style="
+            bottom:0;
+            width: 100%;
+            height: 45px;
+            {% if color == 1 %}
+            background-color: #e6a688;
+            {% elif color == 2 %}
+            background-color: #889be6;
+            {% else %}
+            background-color: #a988e6;
+            {% endif %}
+            border-radius: 0px 0px 20px 20px;
+            position: absolute;
+            ">
+                <h5 style="color:#fff;font-style: italic;text-align: center;font-size: 16px;margin-top:10px;">Puedes completar 1 acción por día</h5>
+            </div>
+
+            
+
+            
+        </div>
+    </div>
+
+    
+
+    <!--CUADRO 2 DE 2-->
+
+    {% if inter.int_est_id.id == 3 %}
+
+    <div>
+
+        <div style="
+        margin-left:2%;
+        float: left;
+        width: 32%;
+        height: 350px;
+        border-radius: 20px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;
+        
+
+        ">
+            
+            <div style="
+            display: block;
+            width: calc(27px + 50%);
+            height: 20px;
+            text-align: center;
+            position: relative;
+            float:left;
+            ">
+                
+
+                
+
+            </div>
+
+            
+            
+
+            <div style="
+            width: 100%;
+            height: 100%;
+            border-radius: 20px 20px 20px 20px;
+            {% if color == 1 %}
+            background-color: #ff7300;
+            {% elif color == 2 %}
+            background-color: #2d2d9a;
+            {% else %}
+            background-color: #692bb0;
+            {% endif %}
+            ">
+                <div style="
+                display: block;
+                width: 100%;
+                height: 20px;
+                text-align: center;
+                position: relative;
+                float:left;
+                ">
+                    <div style="
+                
+                    position: relative;
+                    width: 100%;
+                    height: 200px;
+                    text-align: right;
+                    float:center;
+                    ">
+        
+                        <img style="float: center;width: 100%;height: 150px;margin-left:0px;margin-top:5px;" src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/desafios completados.svg' %}" alt="" class="filteritblanco">
+                    
+                    
+               
+                    </div>
+
+                    
+
+                    
+                    
+
+                    
+                    
+                </div>
+
+                <div style="
+                display: block;
+                width: 100%;
+                height: 100px;
+                text-align: center;
+                position: relative;
+                margin-top: 80px;
+                float:left;
+                ">
+                <!--ESTO ES UNA RESTA CONSTANTE DE DÍAS-->
+                <h5 style="color:#fff;font-weight: bold;font-size: 32px;margin-top:60px;">¡Bien hecho!</h5>
+                
+                <h5 style="color:#fff;font-weight: bold;font-size: 16px;margin-top:-10px;">Completaste todos los desafíos</h5>
+                
+                
+                    
+                </div>
+                
+                
+
+                <div style="
+                margin-top:50px;
+                display: block;
+                width: 100%;
+                height: 60px;
+                text-align: center;
+                position: relative;
+                float:left;
+                ">
+
+                    <!--BOTON PARA MODAL RECOMPENSA-->
+                    {% if color == 1 %}
+                    <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModalreco" style="width:80%;font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#ff7300;color:#fff;border: 2px solid #fff;" value="Conseguir recompensa" class="btn btn-primary" >    
+                    
+                    {% elif color == 2 %}
+                    <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModalreco" style="width:80%;font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#2d2d9a;color:#fff;border: 2px solid #fff;" value="Conseguir recompensa" class="btn btn-primary" >    
+                    
+                    {% else %}
+                    <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModalreco" style="width:80%;font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#692bb0;color:#fff;border: 2px solid #fff;" value="Conseguir recompensa" class="btn btn-primary" >    
+                    
+                    {% endif %}
+
+                    <!--MODAL RECOMPENSA-->
+                    <div class="modal fade" id="exampleModalreco" tabindex="-1" aria-labelledby="exampleModalrecoLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" style="border-radius: 20px;">
+                            <div class="modal-content" style="border-radius: 20px;width:80%;">
+                                
+                                <div class="" style="height: 120%">
+                
+                                    
+                                    
+                                    <div style="border-radius:20px;width:100%;height: 600px;float:left;background-color: #fff;">
+                
+                                        <div class="" style="padding:10px;width:100%;height:40px;">
+                                    
+                                            <button style="float:right;" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        
+                                        <div style="height:10px;">
+                
+                                        </div>
+                
+                                        <div>
+                                            <h5 style="padding-left:40px;padding-right:40px;
+                                            {% if color == 1 %}
+                                            color: #ff7300;border: 0px solid #ff7300;
+                                            {% elif color == 2 %}
+                                            color: #2d2d9a;border: 0px solid #2d2d9a;
+                                            {% else %}
+                                            color: #692bb0;border: 0px solid #692bb0;
+                                            {% endif %}
+                                            text-align: center;font-size: 26px;font-weight: bold;"></h5>
+                                                    
+                                        </div>
+                
+                                        
+                                        <div style="height:160px;">
+                
+                                        </div>
+
+
+
+                                        
+                                        
+                
+                                        <div style="display: flex;
+                                        justify-content: center;
+                                        height:40px;
+                                        
+                                        ">
+                                            
+                                            {% if inter.int_recompensa == True %}
+                                            <h3 style="padding-left:40px;padding-right:40px;
+                                            {% if color == 1 %}
+                                            color: #ff7300;border: 0px solid #ff7300;
+                                            {% elif color == 2 %}
+                                            color: #2d2d9a;border: 0px solid #2d2d9a;
+                                            {% else %}
+                                            color: #692bb0;border: 0px solid #692bb0;
+                                            {% endif %}
+                                            text-align: center;font-size: 26px;font-weight: bold;">Usted ha recibido la recompensa N° {{inter.int_num_recompensa}}/{{campana.cam_cantidad_recompensas}}</h3>
+                                            
+                                            {% endif %}
+                                            
+                
+                                        </div>
+
+                                        <div style="height:40px;">
+                
+                                        </div>
+
+                                        <div style="display: flex;
+                                        justify-content: center;
+                                        height:40px;
+                                        
+                                        ">
+                                            
+                                            {% if inter.int_recompensa == True %}
+                                            
+                                            <h5 style="padding-left:40px;padding-right:40px;
+                                            {% if color == 1 %}
+                                            color: #ff7300;border: 0px solid #ff7300;
+                                            {% elif color == 2 %}
+                                            color: #2d2d9a;border: 0px solid #2d2d9a;
+                                            {% else %}
+                                            color: #692bb0;border: 0px solid #692bb0;
+                                            {% endif %}
+                                            text-align: center;font-size: 20px;font-weight: bold;">Muestra este código en la tienda <br>donde vayas hacer válida la recompensa</h5>
+                                            {% endif %}
+                                            
+                
+                                        </div>
+
+                                        <div style="height:60px;">
+                
+                                        </div>
+
+                                        <div style="display: flex;
+                                        justify-content: center;
+                                        height:40px;
+                                        
+                                        ">
+                                            
+                                            {% if inter.int_recompensa == True %}
+                                            <h3 style="padding-left:40px;padding-right:40px;
+                                            {% if color == 1 %}
+                                            color: #ff7300;border: 0px solid #ff7300;
+                                            {% elif color == 2 %}
+                                            color: #2d2d9a;border: 0px solid #2d2d9a;
+                                            {% else %}
+                                            color: #692bb0;border: 0px solid #692bb0;
+                                            {% endif %}
+                                            text-align: center;font-size: 26px;font-weight: bold;">Código: {{recompensa}}</h3>
+                                            {% endif %}
+                                            
+                
+                                        </div>
+                
+                                        <div style="height:30px;">
+                
+                                        </div>
+                
+                                        
+                                    </div>
+                                
+                                </div>
+                                
+                            </div>
+                            </div>
+                    </div>
+
+                </div>
+                
+            </div>
+
+
+
+            
+
+
+        </div>
+    </div>
+
+    {% else %}
+
+        {% if inter.int_est_id.id == 0 or inter.int_est_id.id == 1 or inter.int_est_id.id == 2 or interaccion_activa == False %}
+
+        <div>
+
+            <div style="
+            margin-left:2%;
+            float: left;
+            width: 32%;
+            height: 350px;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;
+            
+    
+            ">
+                
+                <div style="
+                display: block;
+                width: calc(27px + 50%);
+                height: 20px;
+                text-align: center;
+                position: relative;
+                float:left;
+                ">
+                    
+    
+                    
+    
+                </div>
+    
+                
+                
+    
+                <div style="
+                width: 100%;
+                height: 50%;
+                border-radius: 20px 20px 0px 0px;
+                {% if color == 1 %}
+                background-color: #ff7300;
+                {% elif color == 2 %}
+                background-color: #2d2d9a;
+                {% else %}
+                background-color: #692bb0;
+                {% endif %}
+                ">
+                    <div style="
+                    display: block;
+                    width: calc(27px + 50%);
+                    height: 20px;
+                    text-align: center;
+                    position: relative;
+                    float:left;
+                    ">
+                        <div style="
+                    
+                        position: relative;
+                        width: 50px;
+                        height: 50px;
+                        text-align: right;
+                        float:right;
+                        ">
+            
+                            <img style="float: left;width: 80px;margin-left:-16px;margin-top:5px;" src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/finaliza en.svg' %}" alt="" class="filteritblanco">
+                        
+                        
+                   
+                        </div>
+    
+                        
+    
+                        
+                        
+    
+                        
+                        
+                    </div>
+    
+                    <div style="
+                    display: block;
+                    width: 100%;
+                    height: 8s0px;
+                    text-align: center;
+                    position: relative;
+                    float:left;
+                    ">
+                    <!--ESTO ES UNA RESTA CONSTANTE DE DÍAS-->
+                    <h5 style="color:#fff;font-weight: bold;font-size: 16px;margin-top:60px;">Finaliza en:</h5>
+                    {% if campana.cam_dias == 1 %}
+                    <h5 style="color:#fff;font-weight: bold;font-size: 32px;margin-top:-10px;">{{campana.cam_dias}} Día</h5>
+                    {% else %}
+                    <h5 style="color:#fff;font-weight: bold;font-size: 32px;margin-top:-10px;">{{campana.cam_dias}} Días</h5>
+                    {% endif %}
+                    
+                        
+                    </div>
+    
+                    
+                    
+                </div>
+    
+    
+    
+                <div style="text-align: center;">
+                    <div style="margin-left:4%;margin-right:4%;top:50%;margin-top:0px;">
+                        <div style="height:25px;">
+    
+                        </div>
+                        <h5 style="
+                        {% if color == 1 %}
+                        color: #ff7300;border: 0px solid #ff7300;
+                        {% elif color == 2 %}
+                        color: #2d2d9a;border: 0px solid #2d2d9a;
+                        {% else %}
+                        color: #692bb0;border: 0px solid #692bb0;
+                        {% endif %}
+                        font-weight: bold;font-size: 18px;margin-top:0px;">Activar desafío</h5>
+                        <h5 style="color:#808080;font-size: 16px;margin-top:-10px;">¿Comenzamos?</h5>
+                        <form method="post" action="" >
+                            {% csrf_token %}
+                            {% if  interaccion_activa == False %}
+                            <button type="submit" class="btn btn-primary" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">Comenzar Desafío</button>
+                            
+                            {% else %}
+                                
+                                {% if inter.int_est_id.id == 1 %}
+                                    <div class="btn" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#55b731;color:#fff;border: 2px solid #55b731;border: solid 0px red;">Activa</div>
+                                {% endif %}
+    
+                                {% if inter.int_est_id.id == 2 %}
+                                    <div class="btn" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:red;color:#fff;border: 2px solid red;">Inactiva</div>
+                                {% endif %}
+    
+                                {% if inter.int_est_id.id == 3 %}
+                                    <div class="btn" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#1f6dd8;color:#fff;border: 2px solid #1f6dd8;">Finalizada</div>
+                                {% endif %}
+    
+                            {% endif %}
+                            
+                        </form>
+                        
+                        <div style="margin-top:10px;">
+    
+                        </div>
+    
+                        <!--BOTON PARA MODAL INFO-->
+                        <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalinfo"><img alt="" style="width:25px;height:25px;" src="{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/info2.svg' %}" class="filteritgrisoscuro"></a>
+                        
+                        <!--MODAL INFO-->
+                        <div class="modal fade" id="exampleModalinfo" tabindex="-1" aria-labelledby="exampleModalinfoLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" style="border-radius: 20px;">
+                                <div class="modal-content" style="border-radius: 20px;">
+                                    
+                                    <div class="" style="height: 120%">
+                    
+                                        
+                                        
+                                        <div style="border-radius:20px;width:100%;height: 120%;float:left;background-color: #fff;">
+                    
+                                            <div class="" style="padding:10px;width:100%;height:40px;">
+                                        
+                                                <button style="float:right;" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            
+                                            <div style="height:10px;">
+                    
+                                            </div>
+                    
+                                            <div>
+                                                <h5 style="padding-left:40px;padding-right:40px;color:#692bb0;text-align: center;font-size: 26px;font-weight: bold;">Información</h5>
+                                                        
+                                            </div>
+                    
+                                            
+                                            <div style="height:30px;">
+                    
+                                            </div>
+                                            
+                                            
+                    
+                                            <div style="display: flex;
+                                            justify-content: center;
+                                            
+                                            ">
+                                                
+                    
+                                                
+                    
+                                            </div>
+                    
+                                            <div style="height:30px;">
+                    
+                                            </div>
+                    
+                                            
+                                        </div>
+                                    
+                                    </div>
+                                    
+                                </div>
+                                </div>
+                        </div>
+    
+                    </div>
+    
+                    
+                </div>
+    
+    
+            </div>
+        </div>
+    
+        {% endif %}
+
+    {% endif %}
+
+    
+
+    <!--OTRO ESPACIO PARA SEPARAR-->
+
+    <div style="height:700px;">
+
+    </div>
+
+</div>
+
+
+<br><br>
+<!--
+<div class="productos" style="border-radius:0px;">
+
+    <div class="producto"  style="width:100%;border-radius:20px;">
+
+        <div class="contenedor_producto" style="border-radius:0px;">
+            
+            <div class="detalle">
+                <h5>{{ campana.cam_nombre | capfirst }}</h5>
+                <h2>{{ campana.cam_medallas | intcomma }} Medallas</h2>
+                <h2>{{ campana.cam_dias }} Dias </h2>
+                <h5>Descripcion: {{ campana.cam_descripcion }}</h5>
+                <br>
+                <h5>Detalles: {{ campana.cam_detalles }}</h5>
+                <h4>Cantidad de recompensas: {{campana.cam_cantidad_recompensas}}</h4>
+                <h4>Recompensas canjeadas: {{cantidad_jugadores_con_recompensa}}</h4>
+                <h4>Jugadores activos: {{cantidad_jugadores}}</h4>
+            </div>
+
+           
+
+            <br><br>
+            {% if inter.int_recompensa == True %}
+            <h3>Usted ha recibido la recompensa N° {{inter.int_num_recompensa}}/{{campana.cam_cantidad_recompensas}}</h3>
+            {% endif %}
+            <br><br>
+
+            
+            
+            
+            
+            <br>
+
+
+
+        </div>
+
+    </div>
+    
+
+</div>
+
+<form method="post" action="" >
+    {% csrf_token %}
+    {% if  interaccion_activa == False %}
+    <button type="submit" class="btn btn-info btn-sm">Comenzar Desafío</button>
+    {% endif %}
+
+-->
+
+
+
+
+<script>
+    function mostrar1(){
+
+        document.getElementById('info1').style.display = 'block';
+        document.getElementById('info2').style.display = 'none';
+        document.getElementById('imagen1').className = 'filterit';
+        document.getElementById('texto1').style.color = '#692bb0';
+        document.getElementById('imagen2').className = 'filteritgrisoscuro';
+        document.getElementById('texto2').style.color = '#808080';
+
+
+    }
+
+    function mostrar2(){
+
+        document.getElementById('info1').style.display = 'none';
+        document.getElementById('info2').style.display = 'block';
+        document.getElementById('imagen1').className = 'filteritgrisoscuro';
+        document.getElementById('texto1').style.color = '#808080';
+        document.getElementById('imagen2').className = 'filterit';
+        document.getElementById('texto2').style.color = '#692bb0';
+    }
+
+    
+</script>
+
+{% endblock %}
+

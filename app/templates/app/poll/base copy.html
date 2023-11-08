@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniperz</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,600&display=swap"
+        rel="stylesheet">
+
+    {% load static %}
+
+
+
+    <link rel="short icon" href="{% static 'app/img/uniperzicono.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    {% block css %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'app/css/estilos.css' %}">
+
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-1">
+            <div class="container-fluid">
+                <div class="sidebar">
+                    <ul class="nav flex-column">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><img src="https://via.placeholder.com/500" alt="avatar"></a>
+                        </li>
+                        <li class="nav-item username">
+                            <a class="nav-link" href="#">{{ user.username }}</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a href="{% url 'login' %}">Iniciar sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'registro' %}">Regístrate</a>
+                        </li>
+                        {% endif %}
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}"><img
+                                    src="{% static 'app/img/imageninicio.png' %}" alt="inicio"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><img src="{% static 'app/img/imagenlupa.png' %}"
+                                    alt="buscar"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><img src="{% static 'app/img/mis-marcas.png' %}"
+                                    alt="mis marcas"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'interacciones' %}"><img
+                                    src="{% static 'app/img/imageninteracciones.png' %}" alt="mis interacciones"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}"><img
+                                    src="{% static 'app/img/imagencerrarsesion.png' %}" alt="cerrar sesión"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-11">
+            <div class="container-fluid">
+                <div id="contenido">
+
+                    {% block main %}{% endblock %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="marcas">
+            <img class="img-fluid" src="{% static 'app/img/footer/apple.png' %}" alt="apple">
+            <img class="img-fluid" src="{% static 'app/img/footer/lenovo.png' %}" alt="lenovo">
+            <img class="img-fluid" src="{% static 'app/img/footer/microsoft.png' %}" alt="microsoft">
+            <img class="img-fluid" src="{% static 'app/img/footer/samsung.png' %}" alt="samsung">
+            <img class="img-fluid" src="{% static 'app/img/footer/xiaomi.png' %}" alt="xiaomi">
+        </div>
+        <div class="logo_footer">
+            <img src="{% static 'app/img/uniperzlogo4.png' %}" alt="logo">
+        </div>
+    </footer>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="{% static 'app/js/menu.js' %}"></script>
+
+    <script src="{% static 'app/js/calificar_campana.js' %}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    {% if messages %}
+    {% for m in messages %}
+
+    <script>
+        Swal.fire(
+            {
+                "title": "Felicitaciones",
+                "text": "{{m}}",
+                "icon": "success"
+            }
+        )
+    </script>
+
+    {% endfor %}
+
+    {% endif %}
+
+    {% block js %}
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+      $('.slider').bxSlider({
+          mode: 'fade',//horizontal, vertical, fade
+          auto: true,
+          pause: 2000
+      });
+    });
+</script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+{% endblock %}
+
+{% block contenido %}
+
+<!--
+<div class="slider">
+    <div>
+        <img src="{% static 'app/img/banner/banner1.png' %}" alt="">
+    </div>
+    <div>
+        <img src="{% static 'app/img/banner/banner2.png' %}" alt="">
+    </div>
+    <div>
+        <img src="{% static 'app/img/banner/banner3.png' %}" alt="">
+    </div>
+</div>
+-->
+
+{% load humanize %}
+{% load customhtml %}
+
+
+<div>
+    <br>
+    <h2></h2>
+    <div class="productos">
+
+        <div class="producto" >
+
+            <div class="contenedor_producto">
+                {% if producto.pro_imagen %}
+                
+                <a> <img src="{{ producto.pro_imagen.url }}" alt="imagen producto"></a>
+                
+                {% endif %}
+                <div class="detalle">
+                    <h2>{{ producto.pro_nombre | capfirst }}</h2>
+                    <h2>$ {{ producto.pro_precio | intcomma }}</h2>
+                    <h5>Descripcion: {{ producto.pro_descripcion }}</h5>
+                    <br>
+                    <h5>Detalles: {{ producto.pro_detalles }}</h5>
+                </div>
+
+            
+
+                
+                <br><br>
+
+                
+                
+                
+                
+                <br>
+
+
+
+            </div>
+
+        </div>
+        
+
+    </div>
+</div>
+
+<form method="post" action="" >
+    {% csrf_token %}
+
+
+
+
+
+
+{% endblock %}
+

@@ -1,0 +1,925 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+      $('.slider').bxSlider({
+          mode: 'fade',//horizontal, vertical, fade
+          auto: true,
+          pause: 2000
+      });
+    });
+</script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+{% endblock %}
+
+{% block contenido %}
+
+{% load crispy_forms_tags %}
+<!--
+<div class="slider">
+    <div>
+        <img src="{% static 'app/img/banner/banner1.png' %}" alt="">
+    </div>
+    <div>
+        <img src="{% static 'app/img/banner/banner2.png' %}" alt="">
+    </div>
+    <div>
+        <img src="{% static 'app/img/banner/banner3.png' %}" alt="">
+    </div>
+</div>
+-->
+
+
+{% load humanize %}
+
+<style>
+    #infocara{
+        display: block;
+    }
+    #infocabello{
+        display: none;
+    }
+    #infovellofacial{
+        display: none;
+    }
+    #infotorso{
+        display: none;
+    }
+    
+</style>
+
+
+        <div style="width:100%;padding-left: 0px;">
+
+            <div class="contenedor" style="height: 300px;width: 100%;">
+                <img src="{% static 'app/img/fondo paginas (header).svg' %}"
+                
+                style="width: 100%;
+                height: 300px;
+                object-fit: cover;
+                object-position: center;" 
+                />
+                
+                <div class="centrado2" style="color:#fff;width: 100%;">
+                    <img style="margin-bottom: 0px;border-radius: 50%;border:3px solid #ffff;border-color: #fff;width: 140px;margin-bottom:10px;" src="{% static 'app/img/uniperzicono.png' %}" />
+                    <h2 style="font-weight: bold;font-style: italic;">{{ user.username }}<br></h2>
+                </div>
+            </div>
+        
+        
+        </div>  
+        <br><br>
+        
+
+        <style>
+
+            #info1{
+                display: block;
+            }
+            #info2{
+                display: none;
+            }
+            
+        </style>
+        
+        <div style="height:50px;
+        margin-left: 20px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;">
+        
+            <div style="display: flex;
+            justify-content: center;
+            height:100%;">
+        
+                <div
+                style="
+                width:160px;
+                height:100%;
+                float: right;
+                margin-right:10px;
+                border: 2px solid red;
+                ">
+                    <button id="boton1" onclick="mostrar1();" style="float: right;background-color: #fff;border: 0px;" >
+                        <h5 id="texto1"  style="float: right;color:#692bb0;font-weight: bold;margin-top:10px;margin-right:5px;margin-left:6px;font-size:18px;">Mi avatar</h5>
+                        <img id="imagen1" style="float: right;width: 40px;height: auto;" src="{% static 'app/img/plataforma_usuarios/Páginas/Perfil/mi avatar.svg' %}" alt="" class="filterit">
+                    </button>
+                </div>
+        
+                <div
+                style="
+                width:290px;
+                height:100%;
+                float: left;
+                margin-left:10px;
+                border: 2px solid blue;
+                ">
+        
+                    <button id="boton2" onclick="mostrar2();" style="background-color: #fff;border: 0px;" >
+                        <img id="imagen2" style="float: left;width: 40px;height: auto;" src="{% static 'app/img/plataforma_usuarios/Páginas/Perfil/mis datos.svg' %}" alt="" class="filteritgrisoscuro">
+                        <h5 id="texto2" style="float: left;color:#808080;font-weight: bold;margin-top:10px;margin-left:8px;font-size:18px;">Mis datos y configuración</h5>
+                    </button>
+                </div>
+        
+            </div>
+        </div>
+        
+        <div style="height:60px;">
+        
+        </div>
+
+        <!--AVATAR -->
+        
+        <div id="info1" style="margin-left: 66px;margin-right: 50px;">
+        
+            <div style="
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;
+            
+        
+            ">
+                <div style="
+                display: block;
+                width: calc(27px + 50%);
+                height: 20px;
+                text-align: center;
+                position: relative;
+                float:left;
+                ">
+                    <div style="
+                    
+                    position: relative;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background-color: #692bb0;
+                    border: 1px solid white;
+                    text-align: right;
+                    float:right;
+                    margin-top:-25px;
+                    ">
+        
+                    <img style="float: left;width: 40px;margin-left:4px;margin-top:5px;" src="{% static 'app/img/plataforma_usuarios/Páginas/Perfil/mi avatar.svg' %}" alt="" class="filteritblanco">
+                        
+                    </div>
+        
+                    
+        
+                </div>
+        
+                
+                
+        
+                <div style="
+                width: 100%;
+                height: 70px;
+                border-radius: 20px 20px 0px 0px;
+                background-color: #692bb0;
+                ">
+                    <div style="">
+                        <div style="height:30px;">
+        
+                        </div>
+                        <h5 style="color:#fff;font-weight: bold;text-align: center;">Mi avatar</h5>
+                    </div>
+                </div>
+        
+                <div style="
+                text-align: center;
+                width:100%;
+                height: 430px;
+                border: 0px solid blue;">
+                    <div style="margin-left:4%;margin-right:4%;top:50%;margin-top:20px;">
+                        <h5 style="color:grey;font-size:16px;"></h5>
+                    </div>
+
+                    
+
+                    <div
+                    style="
+                    left:50%;
+                    height: 200px;
+                    width: 200px;
+                    margin-top: 0px;
+                    margin-left: calc(50% - 425px);
+                    float: left;
+                    border: 2px solid red;
+                    
+                    
+                    "
+                    >
+
+                        <div style="
+                        margin-top:-100px;
+                        
+                        height: 200px;
+                        ">
+
+                            <div
+                            style="
+                            position: relative;
+                            width: 180px;
+                            height: 0px;
+                            top: 150px;
+
+                            left: 12px;
+                            
+                            
+                            ">
+                            <img style="opacity: 1;" src="{% static 'app/img/avatar/6. Orejas/Sin fondo/orejas-1.svg' %}" alt="">
+
+                            </div>
+
+                            <div
+                            style="
+                            position: relative;
+                            width: 150px;
+                            height: 135px;
+                            top: 230px;
+                            left: 25px;
+                            border: 0px solid red;
+                            
+                            ">
+                            <img style="opacity: 1;" src="{% static 'app/img/avatar/10. Torso/Sin fondo/torso-2.svg' %}" alt="">
+
+                            </div>
+
+                            
+
+                            <div
+                            style="
+                            position: relative;
+                            width: 200px;
+                            height: 180px;
+                            
+                            
+                            border: 0px solid red;
+                            
+                            ">
+                            <img style="opacity: 1;" src="{% static 'app/img/avatar/1. Cara/Sin fondo/cara-3.svg' %}" alt="">
+
+                            </div>
+
+                            <div
+                            style="
+                            position: relative;
+                            width: 150px;
+                            height: 135px;
+                            top: -160px;
+                            left: 25px;
+                            border: 0px solid red;
+                            
+                            ">
+                            <img style="opacity: 1;" src="{% static 'app/img/avatar/2. Ojos/Sin fondo/ojos-3.svg' %}" alt="">
+
+                            </div>
+
+                            <div
+                            style="
+                            position: relative;
+                            width: 150px;
+                            height: 135px;
+                            top: -320px;
+                            left: 25px;
+                            border: 0px solid red;
+                            
+                            ">
+                            <img style="opacity: 1;" src="{% static 'app/img/avatar/3. Cejas/Sin fondo/cejas-6.svg' %}" alt="">
+
+                            </div>
+
+                            <div
+                            style="
+                            position: relative;
+                            width: 150px;
+                            height: 135px;
+                            top: -425px;
+                            left: 25px;
+                            border: 0px solid red;
+                            
+                            ">
+                            <img style="opacity: 1;" src="{% static 'app/img/avatar/4. Nariz/Sin fondo/nariz-1.svg' %}" alt="">
+
+                            </div>
+
+                            <div
+                            style="
+                            position: relative;
+                            width: 150px;
+                            height: 135px;
+                            top: -525px;
+                            left: 25px;
+                            border: 0px solid red;
+                            
+                            ">
+                            <img style="opacity: 1;" src="{% static 'app/img/avatar/5. Boca/Sin fondo/boca-1.svg' %}" alt="">
+
+                            </div>
+
+                            <div
+                            style="
+                            position: relative;
+                            width: 195px;
+                            height: 180px;
+                            top: -760px;
+                            left: 5px;
+                            border: 0px solid greenyellow;
+                            
+                            ">
+                            <img style="opacity: 1;" src="{% static 'app/img/avatar/7. Cabello/Sin fondo/cabello-3.svg' %}" alt="">
+
+                            </div>
+
+                            <div
+                            style="
+                            position: relative;
+                            width: 180px;
+                            height: 0px;
+                            top: -860px;
+                            left: 6px;
+                            border: 0px solid greenyellow;
+                            
+                            ">
+                            <img style="opacity: 1;" src="{% static 'app/img/avatar/8. Vello facial/Sin fondo/vello facial-6.svg' %}" alt="">
+
+                            </div>
+
+                            <div
+                            style="
+                            position: relative;
+                            width: 200px;
+                            height: 0px;
+                            top: -912px;
+                            left: 4px;
+                            border: 0px solid greenyellow;
+                            
+                            ">
+                            <img style="opacity: 1;" src="{% static 'app/img/avatar/9. Lentes/Sin fondo/lentes-22.svg' %}" alt="">
+
+                            </div>
+
+                        </div>  
+
+                            
+
+                            
+
+                    </div>
+
+                    <div
+                    style="
+                    border: 2px solid orange;
+                    height: 300px;
+                    width: 50px;
+                    float: left;
+                    "
+                    >
+                    </div>
+
+                    <div
+                    style="
+                    border: 2px solid blue;
+                    height: 300px;
+                    width: 600px;
+                    float: left;
+                    "
+                    >
+                        <div
+                        style="
+                        border: 1px solid green;
+                        width: 96%;
+                        height: 50px;
+                        margin: 2%;
+                        "
+                        >
+                            <div>
+
+                                <button
+                                style="
+                                border: 1px solid red;
+                                width: 20%;
+                                height: 50px;
+                                background-color: #692bb0;
+                                color: #fff;
+                                border-radius: 10px;
+                                float: left;
+                                "
+                                id = "botoncara"
+                                onclick="mostrar3();"
+
+                                >
+                            
+                                <h5 style="font-size: 16px;font-weight: bold;margin-top:12%;">Cara</h5>
+                                
+
+                                
+
+                            </div>
+
+                            <div>
+
+                                <button
+                                style="
+                                border: 1px solid red;
+                                width: 20%;
+                                height: 50px;
+                                background-color: #808080;
+                                color: #fff;
+                                border-radius: 10px;
+                                float: left;
+                                margin-left: 10px;
+                                
+                                
+                                "
+                                id = "botoncabello"
+                                onclick="mostrar4();"
+                                >
+                                <h5 style="font-size: 16px;font-weight: bold;margin-top:12%;">Cabello</h5>
+                            </div>
+                            <div>
+
+                                <button
+                                style="
+                                border: 1px solid red;
+                                width: 20%;
+                                height: 50px;
+                                background-color: #808080;
+                                color: #fff;
+                                border-radius: 10px;
+                                float: left;
+                                margin-left: 10px;
+                                
+                                
+                                "
+                                id = "botonvellofacial"
+                                onclick="mostrar5();"
+                                >
+                                <h5 style="font-size: 16px;font-weight: bold;margin-top:12%;">Vello Facial</h5>
+                            </div>
+                            <div>
+                                <button
+                                style="
+                                border: 1px solid red;
+                                width: 100px;
+                                height: 50px;
+                                background-color: #808080;
+                                color: #fff;
+                                border-radius: 10px;
+                                float: left;
+                                margin-left: 10px;
+                                
+                                
+                                "
+                                id = "botontorso"
+                                onclick="mostrar6();"
+                                >
+                                <h5 style="font-size: 16px;font-weight: bold;margin-top:12%;">Torso</h5>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <!--
+                            <form method="post">
+                            {% csrf_token %}
+                            -->
+
+                                <div
+
+                                id="infocara"
+
+                                style="
+                                border: 1px solid green;
+                                width: 96%;
+                                height: calc(220px);
+                                margin-left: 2%;
+                                margin-right: 2%;
+                                "
+                                >
+                                
+                                
+                                    <div style="height:15px;">
+
+                                    </div>
+
+                                    <div class="hiddenradio">
+                                        <label>
+                                          <input type="radio" name="test" value="small" checked>
+                                          <img style="width:100px;border:0 solid red;" src="{% static 'app/img/avatar/Cara/cara-0.svg' %}">
+                                        </label>
+                                        
+                                        <label>
+                                          <input type="radio" name="test" value="big">
+                                          <img style="width:100px;border:0 solid red;" src="{% static 'app/img/avatar/Cara/cara-1.svg' %}">
+                                        </label>
+
+                                        <label>
+                                            <input type="radio" name="test" value="small" checked>
+                                            <img style="width:100px;border:0 solid red;" src="{% static 'app/img/avatar/Cara/cara-2.svg' %}">
+                                        </label>
+                                          
+                                        <label>
+                                            <input type="radio" name="test" value="big">
+                                            <img style="width:100px;border:0 solid red;" src="{% static 'app/img/avatar/Cara/cara-3.svg' %}">
+                                        </label>
+
+                                        <div style="height:5px;">
+
+                                        </div>
+
+                                        <label>
+                                            <input type="radio" name="test" value="small" checked>
+                                            <img style="width:100px;border:0 solid red;" src="{% static 'app/img/avatar/Cara/cara-4.svg' %}">
+                                        </label>
+                                          
+                                        <label>
+                                            <input type="radio" name="test" value="big">
+                                            <img style="width:100px;border:0 solid red;" src="{% static 'app/img/avatar/Cara/cara-5.svg' %}">
+                                        </label>
+
+                                        <label>
+                                            <input type="radio" name="test" value="small" checked>
+                                            <img style="width:100px;border:0 solid red;" src="{% static 'app/img/avatar/Cara/cara-6.svg' %}">
+                                        </label>
+                                          
+                                        <label>
+                                            <input type="radio" name="test" value="big">
+                                            <img style="width:100px;border:0 solid red;" src="{% static 'app/img/avatar/Cara/cara-7.svg' %}">
+                                        </label>
+                                    </div>
+                                        
+                                    
+
+                                    
+                                    
+
+                                </div>
+
+                                <div
+
+                                id="infocabello"
+                                
+                                style="
+                                border: 1px solid green;
+                                width: 96%;
+                                height: calc(220px);
+                                margin-left: 2%;
+                                margin-right: 2%;
+                                "
+                                >
+                                <div style="height:15px;">
+
+                                </div>
+
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Cabello/cabello-0.svg' %}" alt="Thumbs up"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Cabello/cabello-1.svg' %}" alt="Thumbs up"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="2"><img src="{% static 'app/img/avatar/Cabello/cabello-2.svg' %}" alt="Thumbs down"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Cabello/cabello-3.svg' %}" alt="Thumbs up"></button>
+                                
+                                <div style="height:5px;">
+
+                                </div>
+
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Cabello/cabello-4.svg' %}" alt="Thumbs up"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Cabello/cabello-5.svg' %}" alt="Thumbs up"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="2"><img src="{% static 'app/img/avatar/Cabello/cabello-6.svg' %}" alt="Thumbs down"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Cabello/cabello-7.svg' %}" alt="Thumbs up"></button>
+                            
+                            
+                                </div>
+
+                                <div
+
+                                id="infovellofacial"
+                                
+                                style="
+                                border: 1px solid green;
+                                width: 96%;
+                                height: calc(220px);
+                                margin-left: 2%;
+                                margin-right: 2%;
+                                "
+                                >
+                                <div style="height:15px;">
+
+                                </div>
+
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Vello facial/vello facial-0.svg' %}" alt="Thumbs up"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Vello facial/vello facial-1.svg' %}" alt="Thumbs up"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="2"><img src="{% static 'app/img/avatar/Vello facial/vello facial-2.svg' %}" alt="Thumbs down"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Vello facial/vello facial-3.svg' %}" alt="Thumbs up"></button>
+                                
+                                <div style="height:5px;">
+
+                                </div>
+
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Vello facial/vello facial-4.svg' %}" alt="Thumbs up"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Vello facial/vello facial-5.svg' %}" alt="Thumbs up"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="2"><img src="{% static 'app/img/avatar/Vello facial/vello facial-6.svg' %}" alt="Thumbs down"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Vello facial/vello facial-7.svg' %}" alt="Thumbs up"></button>
+                            
+                            
+                                </div>
+
+                                <div
+
+                                id="infotorso"
+                                
+                                style="
+                                border: 1px solid green;
+                                width: 96%;
+                                height: calc(220px);
+                                margin-left: 2%;
+                                margin-right: 2%;
+                                "
+                                >
+                                <div style="height:15px;">
+
+                                </div>
+
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Torso/torso-0.svg' %}" alt="Thumbs up"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Torso/torso-1.svg' %}" alt="Thumbs up"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="2"><img src="{% static 'app/img/avatar/Torso/torso-2.svg' %}" alt="Thumbs down"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Torso/torso-3.svg' %}" alt="Thumbs up"></button>
+                                
+                                <div style="height:5px;">
+
+                                </div>
+
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Torso/torso-4.svg' %}" alt="Thumbs up"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Torso/torso-5.svg' %}" alt="Thumbs up"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="2"><img src="{% static 'app/img/avatar/Torso/torso-6.svg' %}" alt="Thumbs down"></button>
+                                <button type="submit" style="width:100px;border:0 solid red;" name="rating" value="1"><img src="{% static 'app/img/avatar/Torso/torso-7.svg' %}" alt="Thumbs up"></button>
+                            
+                                </div>
+                            <!--
+                            </form>
+                            -->
+                        </div>
+                    </div>
+
+                </div>
+        
+            </div>
+        
+            
+        
+        </div>
+
+        <!--DATOS-->
+        
+        <div id="info2" style="margin-left: 66px;margin-right: 50px;">
+        
+            <div style="
+            width: 100%;
+            height: 530px;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;
+            
+        
+            ">
+                <div style="
+                display: block;
+                width: calc(27px + 50%);
+                height: 20px;
+                text-align: center;
+                position: relative;
+                float:left;
+                ">
+                    <div style="
+                    
+                    position: relative;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background-color: #692bb0;
+                    border: 1px solid white;
+                    text-align: right;
+                    float:right;
+                    margin-top:-25px;
+                    ">
+        
+                    <img style="float: left;width: 32px;margin-left:8px;margin-top:10px;" src="{% static 'app/img/plataforma_usuarios/Páginas/Perfil/mis datos.svg' %}" alt="" class="filteritblanco">
+                        
+                    </div>
+        
+                    
+        
+                </div>
+        
+                
+                
+        
+                <div style="
+                width: 100%;
+                height: 70px;
+                border-radius: 20px 20px 0px 0px;
+                background-color: #692bb0;
+                
+                ">
+                    <div style="">
+                        <div style="height:30px;">
+        
+                        </div>
+                        <h5 style="color:#fff;font-weight: bold;text-align: center;">Mis datos</h5>
+                    </div>
+                </div>
+        
+        
+        
+                <div style="text-align: center;">
+                    <div style="margin-left:4%;margin-right:4%;top:50%;margin-top:20px;">
+                        <form action="" method="post" enctype="multipart/form-data" style="height: 100%;margin-right:40px;">
+
+                            {% csrf_token %}
+
+                            <div style="
+                            float: left;
+                            width: 50%;
+                            height: 300 px;
+                            border: 1px solid red;
+                            ">
+
+                            
+                            
+                            {% for field in form2.visible_fields %}
+                                <div class="form-group" style="margin-left:60px;margin-right: 40px;margin-top:-10px;" >
+            
+                                    
+                                    {{ field | as_crispy_field}}
+                                        
+                                </div>
+                            <br>
+                            {% endfor %}
+            
+                            
+                            </div>
+
+                            
+
+                            <div style="
+                            float: left;
+                            width: 50%;
+                            height: 300 px;
+                            border: 1px solid red;">
+
+                            {% for field in form4.visible_fields %}
+                            <div class="form-group" style="margin-left:60px;margin-right: 40px;margin-top:-10px;" >
+
+                                
+                                {{ field | as_crispy_field}}
+                                    
+                            </div>
+                            <br>
+                            {% endfor %}
+
+                            </div>
+                            
+                            
+                                
+                            
+                            <div style="width:100%;height: 100 px;float: left;">
+            
+                                <div class="" style="margin-top: 0px;"> 
+            
+                                    <input type="submit" value="Guardar" class="btn btn-primary" style="margin-top: 0px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">
+                
+                                </div>
+            
+                            </div>
+                            
+            
+                            
+            
+                        </form>
+                </div>
+        
+            </div>
+
+        <div style="height:40px;">
+                
+        </div>
+        
+
+<script>
+    function mostrar1(){
+
+        document.getElementById('info1').style.display = 'block';
+        document.getElementById('info2').style.display = 'none';
+        document.getElementById('imagen1').className = 'filterit';
+        document.getElementById('texto1').style.color = '#692bb0';
+        document.getElementById('imagen2').className = 'filteritgrisoscuro';
+        document.getElementById('texto2').style.color = '#808080';
+
+
+    }
+
+    function mostrar2(){
+
+        document.getElementById('info1').style.display = 'none';
+        document.getElementById('info2').style.display = 'block';
+        document.getElementById('imagen1').className = 'filteritgrisoscuro';
+        document.getElementById('texto1').style.color = '#808080';
+        document.getElementById('imagen2').className = 'filterit';
+        document.getElementById('texto2').style.color = '#692bb0';
+    }
+
+    function mostrar3(){
+
+        document.getElementById('infocara').style.display = 'block';
+        document.getElementById('infocabello').style.display = 'none';
+        document.getElementById('infovellofacial').style.display = 'none';
+        document.getElementById('infotorso').style.display = 'none';
+
+        document.getElementById('botoncara').style.color = '#ffffff';
+        document.getElementById('botoncabello').style.color = '#ffffff';
+        document.getElementById('botonvellofacial').style.color = '#ffffff';
+        document.getElementById('botontorso').style.color = '#ffffff';
+
+        document.getElementById('botoncara').style.backgroundColor = '#692bb0';
+        document.getElementById('botoncabello').style.backgroundColor = '#808080';
+        document.getElementById('botonvellofacial').style.backgroundColor = '#808080';
+        document.getElementById('botontorso').style.backgroundColor = '#808080';
+
+
+    }
+
+    function mostrar4(){
+
+        document.getElementById('infocara').style.display = 'none';
+        document.getElementById('infocabello').style.display = 'block';
+        document.getElementById('infovellofacial').style.display = 'none';
+        document.getElementById('infotorso').style.display = 'none';
+
+        document.getElementById('botoncara').style.color = '#ffffff';
+        document.getElementById('botoncabello').style.color = '#ffffff';
+        document.getElementById('botonvellofacial').style.color = '#ffffff';
+        document.getElementById('botontorso').style.color = '#ffffff';
+
+        document.getElementById('botoncara').style.backgroundColor = '#808080';
+        document.getElementById('botoncabello').style.backgroundColor = '#692bb0';
+        document.getElementById('botonvellofacial').style.backgroundColor = '#808080';
+        document.getElementById('botontorso').style.backgroundColor = '#808080';
+
+
+    }
+
+    function mostrar5(){
+
+        document.getElementById('infocara').style.display = 'none';
+        document.getElementById('infocabello').style.display = 'none';
+        document.getElementById('infovellofacial').style.display = 'block';
+        document.getElementById('infotorso').style.display = 'none';
+
+        document.getElementById('botoncara').style.color = '#ffffff';
+        document.getElementById('botoncabello').style.color = '#ffffff';
+        document.getElementById('botonvellofacial').style.color = '#ffffff';
+        document.getElementById('botontorso').style.color = '#ffffff';
+
+        document.getElementById('botoncara').style.backgroundColor = '#808080';
+        document.getElementById('botoncabello').style.backgroundColor = '#808080';
+        document.getElementById('botonvellofacial').style.backgroundColor = '#692bb0';
+        document.getElementById('botontorso').style.backgroundColor = '#808080';
+
+
+    }
+
+function mostrar6(){
+
+
+        document.getElementById('infocara').style.display = 'none';
+        document.getElementById('infocabello').style.display = 'none';
+        document.getElementById('infovellofacial').style.display = 'none';
+        document.getElementById('infotorso').style.display = 'block';
+
+        document.getElementById('botoncara').style.color = '#ffffff';
+        document.getElementById('botoncabello').style.color = '#ffffff';
+        document.getElementById('botonvellofacial').style.color = '#ffffff';
+        document.getElementById('botontorso').style.color = '#ffffff';
+
+        document.getElementById('botoncara').style.backgroundColor = '#808080';
+        document.getElementById('botoncabello').style.backgroundColor = '#808080';
+        document.getElementById('botonvellofacial').style.backgroundColor = '#808080';
+        document.getElementById('botontorso').style.backgroundColor = '#692bb0';
+
+
+    }
+
+    
+</script>
+
+
+
+
+{% endblock %}
+

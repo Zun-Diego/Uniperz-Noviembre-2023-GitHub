@@ -1,0 +1,49 @@
+{% extends 'app/base.html' %}
+
+{% block contenido %}
+{% load static %}
+<h1>Display de avatar para pruebas</h1>
+<!-- En Style el .st0 es el importante de los colores btw, ver cómo acceder a él
+Adicionalmente Algunos .st0 tienen 2 colores, otros 1, ver cómo diferenciar -->
+
+<body>
+    <label for="colorpicker">Seleccionar un color para Avatar:</label>
+    <input type="color" id="colorpicker" value="#0000ff">
+  </body>
+
+<!-- Colores de avatar -->
+<style>
+    #cara svg .st0{
+    fill: #E5E5E5;
+    }
+</style>
+
+<!-- Posicionamiento de estilos -->
+<style>
+    #cara {
+      position: absolute ;
+      top: 50px;
+      left: 100px;
+      margin:-40px 0 0 -177px;
+      z-index: 0;
+    }
+    #ojos {
+      position: absolute;
+      top: 75px;
+      left: 125px;
+      margin:-90px 0 0 -150px;
+      z-index: 1;
+    }
+  </style>
+
+<h2 id = "ojos"><svg >
+    {% include "Avatar/Ojos/6.svg" %}
+</svg></h2>
+
+
+<h2 id = "cara"><svg >
+    {% include "Avatar/Cara/1.svg" %}
+</svg></h2>
+
+
+{% endblock %}

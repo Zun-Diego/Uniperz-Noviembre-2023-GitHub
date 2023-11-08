@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 127.78 115.91">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 4px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #000;
+      }
+
+      .cls-1, .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-1, .cls-3 {
+        stroke-linejoin: round;
+      }
+
+      .cls-2 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+    <symbol id="Body-woman.neck-short-black-white" viewBox="0 0 90 80">
+      <g>
+        <g>
+          <path class="cls-1" d="m79,72v-9.37c0-5.93-3.28-11.37-8.51-14.14l-16.49-8.73v-21.77h-18v22.06l-14.84,8.35c-5.04,2.83-8.16,8.16-8.16,13.95v9.64"/>
+          <g>
+            <ellipse class="cls-2" cx="45" cy="47" rx="13" ry="9"/>
+            <path class="cls-3" d="m36,18v28h.04c.35,3.36,4.23,6,8.96,6s8.61-2.64,8.96-6h.04v-28h-18Z"/>
+          </g>
+        </g>
+        <rect class="cls-4" width="90" height="80"/>
+      </g>
+    </symbol>
+  </defs>
+  <use width="90" height="80" transform="translate(21.16 21.12)" xlink:href="#Body-woman.neck-short-black-white"/>
+</svg>

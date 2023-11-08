@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 127.78 115.91">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+    </style>
+    <symbol id="head-round_white_hairless" viewBox="0 0 78 110">
+      <g>
+        <rect class="cls-1" x="7" y="3" width="64" height="92" rx="32" ry="32"/>
+        <rect class="cls-2" width="78" height="110"/>
+      </g>
+    </symbol>
+  </defs>
+  <use width="78" height="110" transform="translate(25.55 11.74) scale(.96)" xlink:href="#head-round_white_hairless"/>
+</svg>

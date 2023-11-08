@@ -1,0 +1,126 @@
+{% extends 'app/base.html' %}
+
+{% block contenido %}
+
+{% load humanize %}
+{% load static %}
+
+
+
+
+<div style="width:95%;height:120px;padding-left: 100px;">
+
+    <div style="width: 100px;
+    min-width: 100px; 
+    float: left;
+    height: 100%;
+    top: 50%;">
+        <div style="width: 60px;
+                    position: center;
+                    margin-left: 30px;
+                    ">
+            <img src="{% static 'app/img/plataforma_clientes/Menú/mensajes.svg' %}" style="margin-top: 50%;" class="filteritazul">
+        </div>
+    </div>
+
+    <div style="width: 100px;
+    float: left;
+    height: 100%;
+    top: 50%;">
+        <div style="width: 60px;
+        position: center;
+        margin-left: 10px;
+        ">
+        <h3 style="padding-top: 70%;color:#2f2f5d;">Mensajes</h3>
+        </div>
+        
+    </div>
+
+
+</div>
+
+<div style="margin-left: 115px;margin-right: 50px;border: 3px solid #fff;padding: 20px;margin-top:-20px;">
+
+    <div  style="width: 150px;
+    float: left;">
+      <div><a style="text-decoration:none;color:#2f2f5d;font-size: 16px;margin-left:-40px;font-weight: bold;" href="{% url 'mensajes' %}"><h5 style="font-weight: bold;">Mis mensajes</h5></a></div>
+    </div>
+    
+    <div  style="width: 200px;
+    float: left;">
+      
+    </div>
+    
+</div>
+
+<br><br><br>
+
+
+<div style="margin-left: 132px;margin-right: 50px;">
+
+
+    <div style="border-radius:20px;box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;margin:20 px;">
+        <div >
+
+            <div style="height: 45px;background-color: #2f2f5d;border-radius:20px 20px 0px 0px;">
+                <h5 align="center" style="padding-top: 10px;color:#fff;font-size: 18px;">Mis actividades</h5>
+            </div>
+
+
+            <table class="table table-hover table-responsive-sm" style="height: 45px;" >
+                
+
+                {% if cant_int_cal > 0 %}
+                <TR>
+                    <td></td>
+
+                    {% if cant_int_cal == 1 %}
+                    <TD><div style="background-color:  green;text-align:center;padding: 0px;width: 150px;color: #fff;"><b>Calificar</b></div> <BR>{{cant_int_cal}} nuevo usuario ha calificado.</TD>
+                    {% else %}
+                    <TD> <div style="background-color:  green;text-align:center;padding: 0px;width: 150px;color: #fff;"><b>Calificar</b></div>   <BR>{{cant_int_cal}} nuevos usuarios han calificado.</TD>
+                    {% endif %}
+                    
+                    <TD><br><BR><img src="{% static 'app/img/plataforma_clientes/Páginas/Mensajes/fecha-hora.svg' %}" style="width:30px;" class="" alt=""> {{int_calificar}} </TD>
+                </TR>
+                {% endif %}
+                
+                {% if cant_int_com > 0 %}
+                <TR>
+                    <td></td>
+
+                    {% if cant_int_com == 1 %}
+                    <TD><div style="background-color:  #ff7300;text-align:center;padding: 0px;width: 150px;color: #fff;"><b>Compartir</b></div>  <BR>{{cant_int_com}} nuevo usuario ha calificado.</TD>
+                    {% else %}
+                    <TD><div style="background-color:  #ff7300;text-align:center;padding: 0px;width: 150px;color: #fff;"><b>Compartir</b></div>   <BR>{{cant_int_com}} nuevos usuarios han calificado.</TD>
+                    {% endif %}
+                    
+                    <TD><br><BR><img src="{% static 'app/img/plataforma_clientes/Páginas/Mensajes/fecha-hora.svg' %}" style="width:30px;" class="" alt=""> {{int_compartir}} </TD>
+                </TR>
+                {% endif %}
+
+                {% if cant_int_rec > 0 %}
+                <TR>
+                    <td></td>
+
+                    {% if cant_int_rec == 1 %}
+                    <TD><div style="background-color:  #2d2d9a;text-align:center;padding: 0px;width: 150px;color: #fff;"><b>Recomendar</b></div>  <BR>{{cant_int_rec}} nuevo usuario ha calificado.</TD>
+                    {% else %}
+                    <TD> <div style="background-color:  #2d2d9a;text-align:center;padding: 0px;width: 150px;color: #fff;"><b>Recomendar</b></div>  <BR>{{cant_int_rec}} nuevos usuarios han calificado.</TD>
+                    {% endif %}
+                    
+                    <TD><br><BR><img src="{% static 'app/img/plataforma_clientes/Páginas/Mensajes/fecha-hora.svg' %}" style="width:30px;" class="" alt=""> {{int_recomendar}} </TD>
+                </TR>
+                {% endif %}
+
+                
+            </table>
+            <div>
+                {% include 'app/paginator.html' %}
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}

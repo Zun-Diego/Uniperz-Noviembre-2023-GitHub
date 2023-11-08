@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniperz</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,600&display=swap"
+        rel="stylesheet">
+
+    {% load static %}
+    <link rel="short icon" href="{% static 'app/img/uniperzicono.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        {% block css %}
+    {% endblock %}
+
+    
+    <link rel="stylesheet" href="{% static 'app/css/estilos3.css' %}">
+    <style>
+        * {
+            font-family: 'Lato', sans-serif;
+        }
+        h1,h2 {
+    font-family: 'Lato', sans-serif;
+        }
+
+        /* HIDE RADIO */
+        .hiddenradio [type=radio] { 
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        }
+
+        /* IMAGE STYLES */
+        .hiddenradio [type=radio] + img {
+        cursor: pointer;
+        }
+
+        /* CHECKED STYLES */
+        .hiddenradio [type=radio]:checked + img {
+        outline: 2px solid #692bb0;
+        border-radius: 5px;
+        }
+
+
+    </style>
+</head>
+
+
+
+<!--
+
+<style>
+    #nav_usu_1{
+        background-color: #6e53be;
+    }
+    #nav_usu_2{
+        background-color: #3c404c;
+    }
+    #nav_usu_3{
+        background-color: #3c404c;
+    }
+    #nav_usu_4{
+        background-color: #3c404c;
+    }
+    
+</style>
+
+-->
+
+<!--
+
+<script>
+    function mostrar_nav_usu_1(){
+
+        document.getElementById('nav_usu_1').style.backgroundColor = '#6e53be';
+        document.getElementById('nav_usu_2').style.backgroundColor = '#3c404c';
+        document.getElementById('nav_usu_3').style.backgroundColor = '#3c404c';
+        document.getElementById('nav_usu_4').style.backgroundColor = '#3c404c';
+
+        document.getElementById('nav_usu_a_1').style.backgroundColor = '#6e53be';
+        document.getElementById('nav_usu_a_2').style.backgroundColor = '#3c404c';
+
+    }
+
+    function mostrar_nav_usu_2(){
+
+        document.getElementById('nav_usu_1').style.backgroundColor = '#3c404c';
+        document.getElementById('nav_usu_2').style.backgroundColor = '#6e53be';
+        document.getElementById('nav_usu_3').style.backgroundColor = '#3c404c';
+        document.getElementById('nav_usu_4').style.backgroundColor = '#3c404c';
+
+        document.getElementById('nav_usu_a_1').style.backgroundColor = '#3c404c';
+        document.getElementById('nav_usu_a_2').style.backgroundColor = '#6e53be';
+
+    }
+
+    function mostrar_nav_usu_3(){
+
+        document.getElementById('nav_usu_1').style.backgroundColor = '#3c404c';
+        document.getElementById('nav_usu_2').style.backgroundColor = '#3c404c';
+        document.getElementById('nav_usu_3').style.backgroundColor = '#6e53be';
+        document.getElementById('nav_usu_4').style.backgroundColor = '#3c404c';
+
+        document.getElementById('nav_usu_a_1').style.backgroundColor = '#3c404c';
+        document.getElementById('nav_usu_a_2').style.backgroundColor = '#3c404c';
+
+    }
+
+    function mostrar_nav_usu_4(){
+
+        document.getElementById('nav_usu_1').style.backgroundColor = '#3c404c';
+        document.getElementById('nav_usu_2').style.backgroundColor = '#3c404c';
+        document.getElementById('nav_usu_3').style.backgroundColor = '#3c404c';
+        document.getElementById('nav_usu_4').style.backgroundColor = '#6e53be';
+
+        document.getElementById('nav_usu_a_1').style.backgroundColor = '#3c404c';
+        document.getElementById('nav_usu_a_2').style.backgroundColor = '#3c404c';
+
+    }
+</script>
+
+-->
+{% load sweetify %}
+{% sweetify %}
+
+<body>
+
+    <div class="modal fade" id="exampleModallogout" tabindex="-1" aria-labelledby="exampleModallogoutLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" style="border-radius: 20px;">
+            <div class="modal-content" style="border-radius: 20px;">
+                
+                <div class="" style="height: 120%">
+
+                    
+                    
+                    <div style="border-radius: 0px 20px 20px 0px;width:100%;height: 120%;float:left;">
+
+                        <div class="" style="padding:10px;width:100%;height:40px;">
+                    
+                            <button style="float:right;" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        
+                        <div style="height:10px;">
+
+                        </div>
+
+                        <div>
+                            <h5 style="padding-left:40px;padding-right:40px;color:#692bb0;text-align: center;font-size: 26px;font-weight: bold;">¿Desea cerrar sesión?</h5>
+                                    
+                        </div>
+
+                        
+                        <div style="height:30px;">
+
+                        </div>
+                        
+                        
+
+                        <div style="display: flex;
+                        justify-content: center;
+                        
+                        ">
+                            
+
+                            <div
+                            style="
+                            width:48%;
+                            
+                            float: right;
+                            margin-right:10px;
+                            ">
+                                
+                                <button type="button" data-bs-dismiss="modal" class="btn btn-secondary" style="float: right;border-radius: 20px;background-color: #c9c9c9;border: 1px solid #c9c9c9"  >Cancelar</button>
+                            </div>
+
+                            <div
+                            style="
+                            width:52%;
+                            
+                            float: left;
+                            margin-left:10px;
+                            
+                            ">
+
+                                
+                                <button type="button" onclick="location.href='{% url 'logout_marcas' %}'" style="float: left;border-radius: 20px;" class="btn btn-danger">Cerrar sesión</button>
+                            </div>
+
+                        </div>
+
+                        <div style="height:30px;">
+
+                        </div>
+
+                        
+                    </div>
+                
+                </div>
+                
+            </div>
+            </div>
+    </div>
+
+    {% for group in user.groups.all %}
+        {% if group.name != 'Marca' %} <!-- ROL DE USUARIO -->
+            <div class="row">
+                <div class="col-2">
+                    <div class="container-fluid " style="padding: 0% 0%;width: 100%;">
+                        <div class="sidebar" style="width: 140px;">
+                            <ul class="nav flex-column" >
+                                {% if user.is_authenticated %}
+                                <li class="nav-item" style="padding: 0% 0%;">
+                                    <a class="nav-link" href="{% url 'perfil' %}"><img src="{% static 'app/img/uniperzicono.png' %}" alt="avatar" style="width:130%; margin-left: -16px; margin-top: -8px;"></a>
+                                </li>
+                                    {% if color == 0 %}
+                                    <li class="nav-item username" style="margin-top:-9px;">
+                                        <a class="nav-link" href="#">{{ user.username }}</a>
+                                    </li>
+                                    {% elif color == 1 %}
+                                    <li class="nav-item username" style="margin-top:-9px;background-color:#ff7300">
+                                        <a class="nav-link" href="#">{{ user.username }}</a>
+                                    </li>
+                                    {% elif color == 2 %}
+                                    <li class="nav-item username" style="margin-top:-9px;background-color:#2d2d9a">
+                                        <a class="nav-link" href="#">{{ user.username }}</a>
+                                    </li>
+                                    {% else %}
+                                    <li class="nav-item username" style="margin-top:-9px;">
+                                        <a class="nav-link" href="#">{{ user.username }}</a>
+                                    </li>
+                                    {% endif %}
+                                
+                                {% else %}
+                                <li class="nav-item">
+                                    <a href="{% url 'login' %}">Iniciar sesión</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'registro' %}">Regístrate</a>
+                                </li>
+                                {% endif %}
+
+                                
+                                <li class="nav-item" id="nav_usu_1" onclick="mostrar_nav_usu_1();" style="">
+                                    <a class="nav-link" id="nav_usu_a_1" onclick="{% url 'home' %}" href="{% url 'home' %}" style="background-color: Transparent;border:Transparent;width:100%;"><img
+                                            src="{% static 'app/img/plataforma_usuarios/Menú/1. inicio.svg' %}" alt="inicio"><font size="2"><br>Inicio</font></a>
+                                            
+                                </li>
+                                <li class="nav-item" id="nav_usu_2" onclick="mostrar_nav_usu_2();">
+                                    <a class="nav-link " id="nav_usu_a_2" href="{% url 'buscar' %}" style="background-color: Transparent;border:Transparent;width:100%;"><img src="{% static 'app/img/plataforma_usuarios/Menú/2. buscar.svg' %}"
+                                            alt="buscar"><font size="2"><br>Buscar</font></a>
+                                </li>
+                                <li class="nav-item" id="nav_usu_3" onclick="mostrar_nav_usu_3();">
+                                    <a class="nav-link " href="{% url 'marcas' %}" style="background-color: Transparent;border:Transparent;width:100%;"><img src="{% static 'app/img/plataforma_usuarios/Menú/3. mis marcas.svg' %}"
+                                            alt="mis marcas"><br><font size="2">Mis marcas</font></a>
+                                </li>
+                                <li class="nav-item" id="nav_usu_4" onclick="mostrar_nav_usu_4();">
+                                    <a class="nav-link" href="{% url 'interacciones' %}" style="background-color: Transparent;border:Transparent;width:100%;"><img
+                                            src="{% static 'app/img/plataforma_usuarios/Menú/4. mi interaccion.svg' %}" alt="mis interacciones"><br><font size="2">Mi interacción</font></a>
+                                </li>
+                                <li class="nav-item">
+                                    
+                                    
+                                    <!--href="{% url 'logout' %}" <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModalrecompensa" style="width:80%;font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#692bb0;border: 2px solid #692bb0;" value="Características" class="btn btn-primary" >-->
+                                    <a class="nav-link"  type="button" data-bs-toggle="modal" data-bs-target="#exampleModallogout"><img
+                                            src="{% static 'app/img/plataforma_usuarios/Menú/5. cerrar sesion.svg' %}" alt="cerrar sesión"><font size="2"><br>Cerrar sesión</font></a>
+
+                                            
+
+                                </li>
+                            </ul>
+                            <div style="position: absolute;bottom: 0;">
+
+                                <img src="{% static 'app/img/plataforma_clientes/uniperz.svg' %}" alt="logo" style="width:75%;margin-bottom:20px;">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+        {% else %}
+
+            {% if group.name == 'Marca' %} <!-- ROL DE EMPRESA -->
+        
+            <div class="row">
+                <div class="col-2">
+                    <div class="container-fluid" style="">
+                        <div class="sidebar" style="width:200px;background-color: #2f2f5d;text-align: left;">
+                            <ul class="nav flex-column">
+                                {% if user.is_authenticated %}
+                                <li class="" style="height: 100%;background-color: black;border: #fff solid 1px;">
+                                    <a class=""  href="#" ><img src="{{ marca.mar_imagen.url }}" alt="avatar" style="width:100%;height:120px;object-fit: cover;position: relative;display:block;"></a>
+                                </li>
+                                
+                                {% else %}
+                                <li class="nav-item">
+                                    <a href="{% url 'login' %}">Iniciar sesión</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'registro' %}">Regístrate</a>
+                                </li>
+                                {% endif %}
+
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'listar_campanas' %}"><img
+                                            src="{% static 'app/img/plataforma_clientes/Menú/configuracion.svg' %}" alt="inicio"
+                                            style="height: 70px;margin-left: 20px;"><font size="2" style="margin-left: 5px;">Configuración</font></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'mensajes' %}"><img src="{% static 'app/img/plataforma_clientes/Menú/mensajes.svg' %}"
+                                            alt="buscar" style="height: 70px;margin-left: 20px;"><font size="2" style="margin-left: 5px;">Mensajes</font></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'conf_marca' %}"><img src="{% static 'app/img/plataforma_clientes/Menú/perfil.svg' %}"
+                                            alt="mis marcas" style="height: 70px;margin-left: 20px;"><font size="2" style="margin-left: 5px;">Perfil</font></a>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'logout_marcas' %}" type="button" data-bs-toggle="modal" data-bs-target="#exampleModallogout"><img
+                                            src="{% static 'app/img/plataforma_clientes/Menú/cerrar sesion.svg' %}" alt="mis interacciones"
+                                            style="height: 70px;margin-left: 20px;"><font size="2" style="margin-left: 5px;">Cerrar sesión</font></a>
+                                </li>
+                                
+                                
+                            </ul>
+                            
+                            <div style="position: absolute;bottom: 0;">
+
+                                <img src="{% static 'app/img/plataforma_clientes/uniperz.svg' %}" alt="logo" style="width:55%;margin-bottom:20px;margin-left:45px;">
+
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+        
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+            <div style="padding-left: 60px;padding-right: 0px;;">
+                <div class="container-fluid">
+                    <div id="contenido">
+
+                        {% block contenido %}
+                        {% endblock %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- 
+    <footer>
+        
+        <div class="logo_footer">
+            <img src="{% static 'app/img/uniperzlogo4.png' %}" alt="logo">
+        </div>
+    </footer>
+    -->
+    </div>
+
+    
+
+    
+
+    <script>
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="{% static 'app/js/menu.js' %}"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    {% if messages %}
+        {% for m in messages %}
+            {% if m.tags == 'success' %}
+            <script>
+                Swal.fire(
+                    {
+                        
+                        "title": "Felicitaciones",
+                        "text": "{{m}}",
+                        "icon": "success"
+                    }
+                )
+            </script>
+            {% elif m.tags == 'warning' %}
+            <script>
+                Swal.fire(
+                    {
+                        
+                        "title": "Advertencia",
+                        "text": "{{m}}",
+                        "icon": "warning"
+                    }
+                )
+            </script>
+            
+
+            {% elif m.tags == 'info' %}
+            <script>
+                Swal.fire(
+                    {
+                        
+                        "title": "¡Muy Bien!",
+                        "text": "{{m}}",
+                        "imageUrl": "{% static 'app/img/plataforma_usuarios/Páginas/Campaña-desafíos/medallas conseguidas.svg' %}",
+                        "imageWidth": "200",
+                        "imageHeight": "200",
+                        
+                        
+                    }
+                )
+            </script>
+            {% endif %}
+
+        {% endfor %}
+
+    {% endif %}
+
+    {% block js %}
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,443 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block js %}
+
+{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block contenido %}
+
+{% load humanize %}
+
+
+<div style="width:100%;padding-left: 0px;">
+
+    <div class="contenedor" style="height: 300px;width: 100%;">
+        <img src="{% static 'app/img/fondo paginas (header).svg' %}"
+        
+        style="width: 100%;
+        height: 300px;
+        object-fit: cover;
+        object-position: center;" 
+        />
+        
+        <div class="centrado2" style="color:#fff;width: 100%;">
+            <img style="margin-bottom: 0px;border-radius: 50%;border:3px solid #ffff;border-color: #fff;width: 140px;margin-bottom:10px;" src="{% static 'app/img/uniperzicono.png' %}" />
+            <h2 style="font-weight: bold;">¡Hola, {{ user.username }}!<br>¿Qué buscamos hoy?</h2>
+        </div>
+    </div>
+
+
+</div>  
+<br><br>
+
+<div style="width:100%;margin-left: 0px;margin-top: -80px;">
+    <div style="width:100%;position:relative;">
+        <div style="position:center;width:40%;margin-left: 30%;">
+        <div style="background-color: #fff;border-radius:20px;box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;width:100%;padding-top:10px;padding-bottom:10px;">
+            <!--
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+            method="POST">
+            -->
+            <form class="" method="POST" style="background-color: #fff;border-radius:20px;">
+            {% csrf_token %}
+            <div class="input-group" style="">
+                <input type="text" style="margin-left: 2%;background-color: #fff;border-radius:20px;" class="form-control bg-light border-0 small" placeholder="Buscar" name="buscar" value="{{ request.POST.buscar }}">
+                {% if color == 1 %}
+                <button class="btn btn-primary" type="submit" style="width:15%;margin-right: 2%;margin-left: 2%;border-radius:20px;background-color:#fff;color:#ff7300;
+                border: 2px solid #ff7300;">
+                Buscar<i class="fas fa-search fa-sm"></i>
+                </button>
+                {% elif color == 2 %}
+                <button class="btn btn-primary" type="submit" style="width:15%;margin-right: 2%;margin-left: 2%;border-radius:20px;background-color:#fff;color:#2d2d9a;
+                border: 2px solid #2d2d9a;">
+                Buscar<i class="fas fa-search fa-sm"></i>
+                </button>
+                {% else %}
+                <button class="btn btn-primary" type="submit" style="width:15%;margin-right: 2%;margin-left: 2%;border-radius:20px;background-color:#fff;color:#6e53be;
+                border: 2px solid #6e53be;">
+                Buscar<i class="fas fa-search fa-sm"></i>
+                </button>
+                {% endif %}
+            </div>
+            </form>
+
+        </div>
+        </div>
+    </div>
+</div>
+
+
+<div style="width:100%;padding-left: 10px;">
+
+    <br><br>
+
+    
+    {% if color == 1 %}
+    <h2 style="color:#ff7300;text-align: center;font-weight: bold;">Explorar</h2>
+    {% elif color == 2 %}
+    <h2 style="color:#2d2d9a;text-align: center;font-weight: bold;">Explorar</h2>
+    {% else %}
+    <h2 style="color:#692bb0;text-align: center;font-weight: bold;">Explorar</h2>
+    {% endif %}
+    
+    <br><br>
+
+</div>
+
+
+    <div class="contenido">
+
+        
+
+    </div>
+
+    {% if buscado == 1 %}
+
+    <div style="padding-left: calc(2% + 20px);padding-right: 2%;">
+
+        <div class="productos">
+            {% for p in campana %}
+            <div class="producto">
+    
+                <div class="contenedor_producto"  style="box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;">
+                    {% if p.cam_imagen %}
+                    <a href="/testing/interacciones/{{p.slug}}"> <img src="{{ p.cam_imagen.url }}" alt="imagen producto"> </a>
+    
+                    {% endif %}
+                    <div class="detalle">
+                        {% if color == 1 %}
+                        <h5 style="color:#ff7300;text-align: center;font-size: 18px;font-weight: bold;">{{ p.cam_nombre | capfirst }}</h5>
+                        {% elif color == 2 %}
+                        
+                        <h5 style="color:#2d2d9a;text-align: center;font-size: 18px;font-weight: bold;">{{ p.cam_nombre | capfirst }}</h5>
+                        {% else %}
+                        <h5 style="color:#692bb0;text-align: center;font-size: 18px;font-weight: bold;">{{ p.cam_nombre | capfirst }}</h5>
+                        {% endif %}
+                        
+                        <h5 style="color:#383838;text-align: center;font-size: 18px;">{{ p.cam_detalles | intcomma }}</h5>
+                    </div>
+    
+                </div>
+    
+            </div>
+            {% endfor %}
+        </div>
+    
+    </div>
+
+    
+
+    {% endif %}
+
+    {% if buscado == 0 %}
+
+    <div class="productos2">
+        <div class="producto2">
+
+            <div class="contenedor_producto2" style="box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;">
+                
+                
+                <div>
+                    {% if color == 1 %}
+                    <a href="tecnologia"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/tecnologia.svg' %}" alt="" class="" style="filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);"> </a>
+                    
+                    {% elif color == 2 %}
+                    <a href="tecnologia"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/tecnologia.svg' %}" alt="" class="" style="filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);"> </a>
+                    
+                    {% else %}
+                    <a href="tecnologia"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/tecnologia.svg' %}" alt="" class="filterit" style=""> </a>
+                    {% endif %}
+                </div>
+                
+                <div class="detalle2">
+                    {% if color == 1 %}
+                    <h5 style="color:#ff7300;text-align: center;">Tecnología<br><br></h5>
+                    {% elif color == 2 %}
+                    <h5 style="color:#2d2d9a;text-align: center;">Tecnología<br><br></h5>
+                    {% else %}
+                    <h5 style="color:#692bb0;text-align: center;">Tecnología<br><br></h5>
+                    {% endif %}
+                    
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="producto2">
+
+            <div class="contenedor_producto2" style="box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;">
+                
+                
+                <div>
+                    {% if color == 1 %}
+                    <a href="salud_y_belleza"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/salud y belleza.svg' %}" alt="" class="" style="filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);"> </a>
+                
+                    {% elif color == 2 %}
+                    <a href="salud_y_belleza"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/salud y belleza.svg' %}" alt="" class="" style="filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);"> </a>
+                
+                    {% else %}
+                    <a href="salud_y_belleza"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/salud y belleza.svg' %}" alt="" class="filterit"> </a>
+                
+                    {% endif %}
+                </div>
+                
+                <div class="detalle2">
+                    {% if color == 1 %}
+                    <h5 style="color:#ff7300;text-align: center;">Salud y Belleza<br><br></h5>
+                    {% elif color == 2 %}
+                    <h5 style="color:#2d2d9a;text-align: center;">Salud y Belleza<br><br></h5>
+                    {% else %}
+                    <h5 style="color:#692bb0;text-align: center;">Salud y Belleza<br><br></h5>
+                    {% endif %}
+                    
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="producto2">
+
+            <div class="contenedor_producto2" style="box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;">
+                
+                
+                <div>
+                    {% if color == 1 %}
+                    <a href="gastronomia"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/gastronomia.svg' %}" alt="" class="" style="filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);"> </a>
+                
+                    {% elif color == 2 %}
+                    <a href="gastronomia"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/gastronomia.svg' %}" alt="" class="" style="filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);"> </a>
+                
+                    {% else %}
+                    <a href="gastronomia"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/gastronomia.svg' %}" alt="" class="filterit"> </a>
+                
+                    {% endif %}
+                    </div>
+                
+                <div class="detalle2">
+                    {% if color == 1 %}
+                    <h5 style="color:#ff7300;text-align: center;">Gastronomía<br><br></h5>
+                    {% elif color == 2 %}
+                    <h5 style="color:#2d2d9a;text-align: center;">Gastronomía<br><br></h5>
+                    {% else %}
+                    <h5 style="color:#692bb0;text-align: center;">Gastronomía<br><br></h5>
+                    {% endif %}
+                    
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="producto2">
+
+            <div class="contenedor_producto2" style="box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;">
+                
+                
+                <div>
+                    {% if color == 1 %}
+                    <a href="deportes_y_outdoor"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/deportes y outdoor.svg' %}" alt="" class="" style="filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);"> </a>
+                
+                    {% elif color == 2 %}
+                    <a href="deportes_y_outdoor"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/deportes y outdoor.svg' %}" alt="" class="" style="filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);"> </a>
+                
+                    {% else %}
+                    <a href="deportes_y_outdoor"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/deportes y outdoor.svg' %}" alt="" class="filterit"> </a>
+                
+                    {% endif %}
+                    </div>
+                
+                <div class="detalle2">
+                    {% if color == 1 %}
+                    <h5 style="color:#ff7300;text-align: center;">Deportes y outdoor<br><br></h5>
+                    {% elif color == 2 %}
+                    <h5 style="color:#2d2d9a;text-align: center;">Deportes y outdoor<br><br></h5>
+                    {% else %}
+                    <h5 style="color:#692bb0;text-align: center;">Deportes y outdoor<br><br></h5>
+                    {% endif %}
+                    
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="producto2">
+
+            <div class="contenedor_producto2" style="box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;">
+                
+                
+                <div>
+                    {% if color == 1 %}
+                    <a href="vestuario_y_calzado"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/vestuario y calzado.svg' %}" alt="" class="" style="filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);"> </a>
+                
+                    {% elif color == 2 %}
+                    <a href="vestuario_y_calzado"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/vestuario y calzado.svg' %}" alt="" class="" style="filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);"> </a>
+                
+                    {% else %}
+                    <a href="vestuario_y_calzado"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/vestuario y calzado.svg' %}" alt="" class="filterit"> </a>
+                
+                    {% endif %}
+                    </div>
+                
+                <div class="detalle2">
+                    {% if color == 1 %}
+                    <h5 style="color:#ff7300;text-align: center;">Vestuario y calzado<br><br></h5>
+                    {% elif color == 2 %}
+                    <h5 style="color:#2d2d9a;text-align: center;">Vestuario y calzado<br><br></h5>
+                    {% else %}
+                    <h5 style="color:#692bb0;text-align: center;">Vestuario y calzado<br><br></h5>
+                    {% endif %}
+                    
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="producto2">
+
+            <div class="contenedor_producto2" style="box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;">
+                
+                
+                <div>
+                    {% if color == 1 %}
+                    <a href="mascotas"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/mascotas.svg' %}" alt="" class="" style="filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);"> </a>
+                
+                    {% elif color == 2 %}
+                    <a href="mascotas"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/mascotas.svg' %}" alt="" class="" style="filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);"> </a>
+                
+                    {% else %}
+                    <a href="mascotas"> <img src="{% static 'app/img/plataforma_usuarios/Categorías/mascotas.svg' %}" alt="" class="filterit"> </a>
+                
+                    {% endif %}
+                    </div>
+                
+                <div class="detalle2">
+                    {% if color == 1 %}
+                    <h5 style="color:#ff7300;text-align: center;">Mascotas<br><br></h5>
+                    {% elif color == 2 %}
+                    <h5 style="color:#2d2d9a;text-align: center;">Mascotas<br><br></h5>
+                    {% else %}
+                    <h5 style="color:#692bb0;text-align: center;">Mascotas<br><br></h5>
+                    {% endif %}
+                    
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        
+
+        <div class="producto2">
+
+            <div class="contenedor_producto2" style="box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;">
+                
+                <a href="turismo_y_viajes"> 
+                    <div>
+                        {% if color == 1 %}
+                        <img src="{% static 'app/img/plataforma_usuarios/Categorías/turismo y viajes.svg' %}" alt="" class="" style="filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);"> 
+                    
+                        {% elif color == 2 %}
+                        <img src="{% static 'app/img/plataforma_usuarios/Categorías/turismo y viajes.svg' %}" alt="" class="" style="filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);"> 
+                    
+                        {% else %}
+                        <img src="{% static 'app/img/plataforma_usuarios/Categorías/turismo y viajes.svg' %}" alt="" class="filterit"> 
+                    
+                        {% endif %}
+                        </div>
+                </a>
+                
+                <div class="detalle2">
+                    {% if color == 1 %}
+                    <h5 style="color:#ff7300;text-align: center;">Turismo y viajes<br><br></h5>
+                    {% elif color == 2 %}
+                    <h5 style="color:#2d2d9a;text-align: center;">Turismo y viajes<br><br></h5>
+                    {% else %}
+                    <h5 style="color:#692bb0;text-align: center;">Turismo y viajes<br><br></h5>
+                    {% endif %}
+                    
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="producto2" >
+
+            <div class="contenedor_producto2" style="box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;">
+                
+                <a href="infantil">
+                    <div>
+                        {% if color == 1 %}
+                        <img src="{% static 'app/img/plataforma_usuarios/Categorías/infantil.svg' %}" alt="" class="" style="filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);"> 
+                   
+                        {% elif color == 2 %}
+                        <img src="{% static 'app/img/plataforma_usuarios/Categorías/infantil.svg' %}" alt="" class="" style="filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);"> 
+                   
+                        {% else %}
+                        <img src="{% static 'app/img/plataforma_usuarios/Categorías/infantil.svg' %}" alt="" class="filterit"> 
+                   
+                        {% endif %}
+                         </div>
+                </a>
+                
+                <div class="detalle2">
+                    {% if color == 1 %}
+                    <h5 style="color:#ff7300;text-align: center;">Infantil<br><br></h5>
+                    {% elif color == 2 %}
+                    <h5 style="color:#2d2d9a;text-align: center;">Infantil<br><br></h5>
+                    {% else %}
+                    <h5 style="color:#692bb0;text-align: center;">Infantil<br><br></h5>
+                    {% endif %}
+                    
+                    
+                </div>
+
+            </div>
+
+        </div>
+        <!-- 
+
+        <div class="producto2" >
+
+            <div class="contenedor_producto2" style="box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;">
+                
+                <a href="">
+                    <div>
+                        <img src="{% static '' %}" alt="" class="filterit"> 
+                    </div>
+                </a>
+                
+                <div class="detalle2">
+                    <h5 style="color:#692bb0;text-align: center;">Otra categoría<br><br></h5>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        -->
+
+    </div>
+
+    {% endif %}
+
+
+
+
+{% endblock %}

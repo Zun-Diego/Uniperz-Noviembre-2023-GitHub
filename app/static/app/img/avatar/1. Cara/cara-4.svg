@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 127.78 115.91">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+    </style>
+    <symbol id="head-pear_white_hairless" viewBox="0 0 78 110">
+      <g>
+        <path class="cls-1" d="m58.42,96.33h0c-11.66,7.43-26.56,7.49-38.28.15l-.32-.2C8,88.88,1.55,75.3,3.28,61.46l2.62-20.94c.32-2.55.53-5.12.74-7.69C8,16.13,22.28,3,39.33,3h0c16.93,0,30.53,12.96,31.99,29.51.24,2.71.44,5.41.77,8.11l2.63,21.04c1.72,13.74-4.63,27.23-16.3,34.67Z"/>
+        <rect class="cls-2" width="78" height="110"/>
+      </g>
+    </symbol>
+  </defs>
+  <use width="78" height="110" transform="translate(27.89 9.74) scale(.92)" xlink:href="#head-pear_white_hairless"/>
+</svg>

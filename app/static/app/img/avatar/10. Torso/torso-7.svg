@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 127.78 115.91">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 4px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #000;
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        stroke-width: 2px;
+      }
+    </style>
+    <symbol id="Body-woman.neckless-short-black-white" viewBox="0 0 90 80">
+      <g>
+        <g>
+          <path class="cls-1" d="m79,72v-9.37c0-5.93-3.28-11.37-8.51-14.14l-16.49-8.73v-21.77h-18v22.06l-14.84,8.35c-5.04,2.83-8.16,8.16-8.16,13.95v9.64"/>
+          <g>
+            <path class="cls-2" d="m58,47c0,4.97-5.82,13-13,13s-13-8.03-13-13,5.82-9,13-9,13,4.03,13,9Z"/>
+            <polyline class="cls-2" points="54 48 54 46 54 18 36 18 36 48 36 46"/>
+          </g>
+        </g>
+        <rect class="cls-3" width="90" height="80"/>
+      </g>
+    </symbol>
+  </defs>
+  <use width="90" height="80" transform="translate(17.07 12.83)" xlink:href="#Body-woman.neckless-short-black-white"/>
+</svg>

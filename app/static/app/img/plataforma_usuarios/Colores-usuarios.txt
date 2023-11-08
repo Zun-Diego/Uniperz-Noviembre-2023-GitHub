@@ -1,0 +1,3 @@
+Morado: #5B39AC
+Gris barra menú: #3A404B
+Gris tipografías: #808080

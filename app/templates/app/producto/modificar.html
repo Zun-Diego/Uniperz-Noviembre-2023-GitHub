@@ -1,0 +1,600 @@
+{% extends 'app/base.html' %}
+
+{% block contenido %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+<div style="width:95%;height:120px;padding-left: 100px;">
+
+    <div style="width: 100px;
+    min-width: 100px; 
+    float: left;
+    height: 100%;
+    top: 50%;">
+        <div style="width: 60px;
+                    position: center;
+                    margin-left: 30px;
+                    ">
+            <img src="{% static 'app/img/plataforma_clientes/Menú/configuracion.svg' %}" style="margin-top: 50%;" class="filteritazul">
+        </div>
+    </div>
+
+    <div style="width: 100px;
+    float: left;
+    height: 100%;
+    top: 50%;
+    ">
+        <div style="width: 60px;
+        position: center;
+        margin-left: 10px;
+        ">
+        <h3 style="padding-top: 70%;color:#2f2f5d;">Configuración</h3>
+        </div>
+        
+    </div>
+
+
+</div>
+
+
+<div style="margin-left: 115px;margin-right: 50px;border: 3px solid #fff;padding: 20px;margin-top:-20px;">
+
+    <div  style="width: 150px;
+    float: left;">
+      <div><a style="text-decoration:none;color:#2f2f5d;font-size: 16px;margin-left:-40px;font-weight: bold;" href="{% url 'listar_campanas' %}"><h5 style="font-weight: bold;">Mis campañas</h5></a></div>
+    </div>
+    
+    <div  style="width: 150px;
+    float: left;">
+      <div><a style="text-decoration:none;color:#878787;font-size: 16px;margin-left:-20px;font-weight: bold;" href="{% url 'agregar_campana' %}"><h5 style="font-weight: bold;">Crear campañas</h5></a></div>
+    </div>
+    
+</div>
+
+ <br><br><br>
+
+
+
+
+<style>
+    #info1{
+        display: block;
+    }
+    #info2{
+        display: none;
+    }
+    #info3{
+        display: none;
+    }
+    #info4{
+        display: none;
+    }
+    
+</style>
+
+<div style="margin-left: 132px;margin-right: 50px;margin-top: 5px;margin-bottom: 40px;text-align:center;">
+
+    <!--
+    <button id="boton1" onclick="mostrar1();">segmento</button>
+    <button id="boton2" onclick="mostrar2();">anuncio</button>
+    <button id="boton3" onclick="mostrar3();">interaccion</button>
+
+        
+        <div id="info1">
+            
+            <h5>info 1</h5>
+
+        </div>
+
+        <div id="info2">
+            
+            <h5>info 2</h5>
+            
+        </div>
+
+        <div id="info3">
+            
+            <h5>info 3</h5>
+            
+        </div>
+    -->
+
+    <button  id="boton1" onclick="mostrar1();" style="width: 23.5%;
+    height: 80px;
+    float:left;
+    border: 1px solid #2f2f5d;
+    border-radius:20px;
+    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+    margin-right: 2%;
+    background-color: #fff;
+    ">
+
+        <div id="boton1izq" style="width:120px;
+        height: 100%;
+        border-radius:20px 0px 0px 20px;
+        float: left;
+        background-color: #2f2f5d;"> 
+
+            <div id="boton1izqimg" style="
+            border-radius:20px 0px 0px 20px;
+            width: 100%;
+            height: 100%;" class="filteritblanco">
+                <img src="{% static 'app/img/plataforma_clientes/Páginas/Crear campañas/segmentacion.svg' %}" style="width:60px;padding-top: 10px;"  alt="">
+            </div>
+
+        </div>
+        
+
+        <div style="
+        width: calc(100% - 120px);
+        height: 100%;
+        border-radius:0px 20px 20px 0px;
+        float: left;">
+
+            <div style="vertical-align: middle;
+            border-radius:0px 20px 20px 0px;
+            height: 100%;
+            padding-top: 27px;">
+                <font  style="color:#2f2f5d;font-size: 16px;font-weight: bold;" >Segmentación</font>
+            </div>
+            
+            
+        </div>
+    
+        
+    </button>
+
+    <button id="boton2" onclick="mostrar2();" style="width: 23.5%;
+    height: 80px;
+    float:left;
+    border: none;
+    border-radius:20px;
+    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+    margin-right: 2%;
+    background-color: #fff;
+    ">
+
+        <div id="boton2izq" style="width:120px;
+        height: 100%;
+        border-radius:20px 0px 0px 20px;
+        float: left;
+        background-color: #fff"> 
+
+            <div id="boton2izqimg" style="
+            border-radius:20px 0px 0px 20px;
+            width: 100%;
+            height: 100%;" class="filteritazul">
+                <img src="{% static 'app/img/plataforma_clientes/Páginas/Crear campañas/anuncio.svg' %}" style="width:60px;padding-top: 10px;"  alt="">
+            </div>
+
+        </div>
+        
+
+        <div style="
+        width: calc(100% - 120px);
+        height: 100%;
+        border-radius:0px 20px 20px 0px;
+        float: left;">
+
+            <div style="vertical-align: middle;
+            border-radius:0px 20px 20px 0px;
+            height: 100%;
+            padding-top: 27px;">
+                <font  style="color:#2f2f5d;font-size: 16px;font-weight: bold;" >Anuncio</font>
+            </div>
+            
+            
+        </div>
+
+    </button>
+
+    <button  id="boton3" onclick="mostrar3();" style="width: 23.5%;
+    height: 80px;
+    float: left;
+    border: none;
+    border-radius:20px;
+    margin-right: 2%;
+    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+    background-color: #fff;
+    
+    ;
+    ">
+
+        <div id="boton3izq" style="width:120px;
+        height: 100%;
+        border-radius:20px 0px 0px 20px;
+        float: left;
+        background-color: #fff;"> 
+
+            <div id="boton3izqimg" style="
+            border-radius:20px 0px 0px 20px;
+            width: 100%;
+            height: 100%;" class="filteritazul">
+                <img src="{% static 'app/img/plataforma_clientes/Páginas/Crear campañas/interaccion.svg' %}" style="width:60px;padding-top: 10px;" alt="">
+            </div>
+
+        </div>
+        
+
+        <div style="
+        width: calc(100% - 120px);
+        height: 100%;
+        border-radius:0px 20px 20px 0px;
+        float: left;">
+
+            <div style="vertical-align: middle;
+            border-radius:0px 20px 20px 0px;
+            height: 100%;
+            padding-top: 27px;">
+                <font  style="color:#2f2f5d;font-size: 16px;font-weight: bold;" >Interacción</font>
+            </div>
+            
+            
+        </div>
+    
+        
+    </button>
+
+    <button  id="boton4" onclick="mostrar4();" style="width: 23.5%;
+    height: 80px;
+    float:left;
+    border: none;
+    border-radius:20px;
+    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+    background-color: #fff;
+    
+    ;
+    ">
+
+        <div id="boton4izq" style="width:120px;
+        height: 100%;
+        border-radius:20px 0px 0px 20px;
+        float: left;
+        background-color: #fff;"> 
+
+            <div id="boton4izqimg" style="
+            border-radius:20px 0px 0px 20px;
+            width: 100%;
+            height: 100%;" class="filteritazul">
+                <img src="{% static 'app/img/plataforma_clientes/Páginas/Crear campañas/recompensas.svg' %}" style="width:60px;padding-top: 10px;" alt="">
+            </div>
+
+        </div>
+        
+
+        <div style="
+        width: calc(100% - 120px);
+        height: 100%;
+        border-radius:0px 20px 20px 0px;
+        float: left;">
+
+            <div style="vertical-align: middle;
+            border-radius:0px 20px 20px 0px;
+            height: 100%;
+            padding-top: 27px;">
+                <font  style="color:#2f2f5d;font-size: 16px;font-weight: bold;" >Recompensas</font>
+            </div>
+            
+            
+        </div>
+    
+        
+    </button>
+
+    <div style="width:100% ;margin:20 px;height: 120px;">
+
+    </div>
+
+    <form action="" method="post" enctype="multipart/form-data" style="">
+    {% csrf_token %}
+
+        <div id="info1" style="">
+                
+            <div style="border-radius:20px;box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;margin:20 px;">
+                <div >
+        
+                    <div style="height: 45px;background-color: #2f2f5d;border-radius:20px 20px 0px 0px;">
+                        <h5 align="center" style="padding-top: 12px;color:#fff;font-size: 18px;font-weight: bold;">Segmentación</h5>
+                    </div>
+        
+                    
+
+                    <div class="" style="height: 550px;" >
+                        
+                        
+
+                            <div style="padding-left:40px;
+                            padding-right: 20px;
+                            padding-top: 20px;
+                            width: 50%;
+                            float: left;
+                            ">
+                                
+                                {{ form.cam_categoria | as_crispy_field}}
+
+
+                            </div>
+
+                            <div style="padding-left:20px;
+                            padding-right: 40px;
+                            padding-top: 20px;
+                            width: 50%;
+                            float: left;">
+                                
+                            </div>
+                            
+                            <!--
+                            <div class="d-flex justify-content-end"> 
+        
+                                
+                                <input type="submit" value="Agregar campaña" class="btn btn-primary" style="margin-top: 0px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">
+        
+                            </div>
+                            -->
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
+        <div id="info2">
+            
+            <div style="border-radius:20px;box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;margin:20 px;">
+                <div >
+        
+                    <div style="height: 45px;background-color: #2f2f5d;border-radius:20px 20px 0px 0px;">
+                        <h5 align="center" style="padding-top: 12px;color:#fff;font-size: 18px;font-weight: bold;">Anuncio</h5>
+                    </div>
+        
+        
+                    <div class="" style="height: 550px;" >
+        
+                        <div style="padding-left:40px;
+                            padding-right: 20px;
+                            padding-top: 20px;
+                            width: 50%;
+                            float: left;
+                            ">
+                                {{ form.cam_nombre | as_crispy_field}}
+                                {{ form.cam_descripcion | as_crispy_field}}
+                                
+
+
+                            </div>
+
+                            <div style="padding-left:20px;
+                            padding-right: 40px;
+                            padding-top: 20px;
+                            width: 50%;
+                            float: left;">
+                                
+                                {{ form.cam_detalles | as_crispy_field}}
+                                {{ form.cam_imagen | as_crispy_field}}
+
+                            </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="info3">
+            
+            <div style="border-radius:20px;box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;margin:20 px;">
+                <div >
+        
+                    <div style="height: 45px;background-color: #2f2f5d;border-radius:20px 20px 0px 0px;">
+                        <h5 align="center" style="padding-top: 12px;color:#fff;font-size: 18px;font-weight: bold;">Interacción</h5>
+                    </div>
+        
+        
+                    <div class="" style="height: 550px;" >
+        
+                        <div class="" style="height: 200px;" >
+        
+                            <div style="padding-left:40px;
+                                padding-right: 20px;
+                                padding-top: 20px;
+                                width: 50%;
+                                float: left;
+                                
+                                ">
+                        
+                                    {{ form.cam_fecha_inicio | as_crispy_field}}
+        
+        
+                                </div>
+        
+                                <div style="padding-left:20px;
+                                padding-right: 40px;
+                                padding-top: 20px;
+                                width: 50%;
+                                float: left;">
+                                    
+                                    {{ form.cam_fecha_termino | as_crispy_field}}
+
+                                </div>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="info4">
+            
+            <div style="border-radius:20px;box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;margin:20 px;">
+                <div >
+        
+                    <div style="height: 45px;background-color: #2f2f5d;border-radius:20px 20px 0px 0px;">
+                        <h5 align="center" style="padding-top: 12px;color:#fff;font-size: 18px;font-weight: bold;">Recompensas</h5>
+                    </div>
+
+                    <div class="" style="height: 550px;" >
+
+                            <div style="height:450px;">
+                                <div style="padding-left:40px;
+                                padding-right: 20px;
+                                padding-top: 20px;
+                                width: 50%;
+                                float: left;
+                                ">
+                                    {{ form.cam_nom_recompensa | as_crispy_field}}
+                                    {{ form.cam_descripcion_recompensa | as_crispy_field}}
+                                    {{ form.cam_caracteristicas_recompensa | as_crispy_field}}
+                                    
+                                    
+
+
+                                </div>
+
+                                <div style="padding-left:20px;
+                                padding-right: 40px;
+                                padding-top: 20px;
+                                width: 50%;
+                                float: left;">
+                                
+                                    {{ form.cam_imagen_recompensa | as_crispy_field}}
+                                    {{ form.cam_link_recompensa | as_crispy_field}}
+                                    {{ form.cam_csv | as_crispy_field}} 
+
+                                </div>
+                            </div>
+
+                            <div class="" style="padding-top:10px;"> 
+        
+                                
+                                <input type="submit" value="Guardar" class="btn btn-primary" style="margin-right:50px;margin-top: 0px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">
+                                <input value="Previsualizar campaña" class="btn btn-primary" style="margin-top: 0px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">
+        
+                            </div>
+                        
+                    </div>
+
+                    
+        
+        
+                    
+                    
+                </div>
+            </div>
+            
+        </div>
+
+    </form>
+
+        <script>
+            function mostrar1(){
+
+                document.getElementById('info1').style.display = 'block';
+                document.getElementById('info2').style.display = 'none';
+                document.getElementById('info3').style.display = 'none';
+                document.getElementById('info4').style.display = 'none';
+
+                document.getElementById('boton1').style.border = '1px solid #2f2f5d';
+                document.getElementById('boton2').style.border = 'none';
+                document.getElementById('boton3').style.border = 'none';
+                document.getElementById('boton4').style.border = 'none';
+
+                document.getElementById('boton1izq').style.backgroundColor = '#2f2f5d';
+                document.getElementById('boton2izq').style.backgroundColor = 'white';
+                document.getElementById('boton3izq').style.backgroundColor = 'white';
+                document.getElementById('boton4izq').style.backgroundColor = 'white';
+
+                document.getElementById('boton1izqimg').className = 'filteritblanco';
+                document.getElementById('boton2izqimg').className = 'filteritazul';
+                document.getElementById('boton3izqimg').className = 'filteritazul';
+                document.getElementById('boton4izqimg').className = 'filteritazul';
+
+            }
+
+            function mostrar2(){
+
+                document.getElementById('info1').style.display = 'none';
+                document.getElementById('info2').style.display = 'block';
+                document.getElementById('info3').style.display = 'none';
+                document.getElementById('info4').style.display = 'none';
+
+                document.getElementById('boton1').style.border = 'none';
+                document.getElementById('boton2').style.border = '1px solid #2f2f5d';
+                document.getElementById('boton3').style.border= 'none';
+                document.getElementById('boton4').style.border= 'none';
+
+                document.getElementById('boton1izq').style.backgroundColor = 'white';
+                document.getElementById('boton2izq').style.backgroundColor = '#2f2f5d';
+                document.getElementById('boton3izq').style.backgroundColor = 'white';
+                document.getElementById('boton4izq').style.backgroundColor = 'white';
+
+                document.getElementById('boton1izqimg').className = 'filteritazul';
+                document.getElementById('boton2izqimg').className = 'filteritblanco';
+                document.getElementById('boton3izqimg').className = 'filteritazul';
+                document.getElementById('boton4izqimg').className = 'filteritazul';
+
+            }
+
+            function mostrar3(){
+
+                document.getElementById('info1').style.display = 'none';
+                document.getElementById('info2').style.display = 'none';
+                document.getElementById('info3').style.display = 'block';
+                document.getElementById('info4').style.display = 'none';
+
+                document.getElementById('boton1').style.border = 'none';
+                document.getElementById('boton2').style.border = 'none';
+                document.getElementById('boton3').style.border = '1px solid #2f2f5d';
+                document.getElementById('boton4').style.border = 'none';
+
+                document.getElementById('boton1izq').style.backgroundColor = 'white';
+                document.getElementById('boton2izq').style.backgroundColor = 'white';
+                document.getElementById('boton3izq').style.backgroundColor = '#2f2f5d';
+                document.getElementById('boton4izq').style.backgroundColor = 'white';
+
+                document.getElementById('boton1izqimg').className = 'filteritazul';
+                document.getElementById('boton2izqimg').className = 'filteritazul';
+                document.getElementById('boton3izqimg').className = 'filteritblanco';
+                document.getElementById('boton4izqimg').className = 'filteritazul';
+                
+            }
+
+            function mostrar4(){
+
+                document.getElementById('info1').style.display = 'none';
+                document.getElementById('info2').style.display = 'none';
+                document.getElementById('info3').style.display = 'none';
+                document.getElementById('info4').style.display = 'block';
+
+                document.getElementById('boton1').style.border = 'none';
+                document.getElementById('boton2').style.border = 'none';
+                document.getElementById('boton3').style.border = 'none';
+                document.getElementById('boton4').style.border = '1px solid #2f2f5d';
+
+                document.getElementById('boton1izq').style.backgroundColor = 'white';
+                document.getElementById('boton2izq').style.backgroundColor = 'white';
+                document.getElementById('boton3izq').style.backgroundColor = 'white';
+                document.getElementById('boton4izq').style.backgroundColor = '#2f2f5d';
+
+                document.getElementById('boton1izqimg').className = 'filteritazul';
+                document.getElementById('boton2izqimg').className = 'filteritazul';
+                document.getElementById('boton3izqimg').className = 'filteritazul';
+                document.getElementById('boton4izqimg').className = 'filteritblanco';
+                
+            }
+
+            
+        </script>
+</div>
+
+
+{% endblock %}

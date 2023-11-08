@@ -1,0 +1,6 @@
+Azul: #2A4473
+Gris: #808080
+Rojo: #E54E60
+Amarillo: #FCAB10
+Verde: #80B53F
+Morado: #786ADE

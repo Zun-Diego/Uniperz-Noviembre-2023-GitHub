@@ -1,0 +1,193 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+      $('.slider').bxSlider({
+          mode: 'fade',//horizontal, vertical, fade
+          auto: true,
+          pause: 2000
+      });
+    });
+</script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+{% endblock %}
+
+{% block contenido %}
+
+<!--
+<div class="slider">
+    <div>
+        <img src="{% static 'app/img/banner/banner1.png' %}" alt="">
+    </div>
+    <div>
+        <img src="{% static 'app/img/banner/banner2.png' %}" alt="">
+    </div>
+    <div>
+        <img src="{% static 'app/img/banner/banner3.png' %}" alt="">
+    </div>
+</div>
+-->
+
+
+{% load humanize %}
+
+{% if user.is_authenticated %}
+
+    {% for group in user.groups.all %}
+        {% if group.name != 'Marca' %}
+
+        {% block buscador %}
+
+        <div style="width:100%;padding-left: 0px;">
+
+            <div class="contenedor" style="height: 300px;width: 100%;">
+                <img src="{% static 'app/img/fondo paginas (header).svg' %}"
+                
+                style="width: 100%;
+                height: 300px;
+                object-fit: cover;
+                object-position: center;" 
+                />
+                
+                <div class="centrado2" style="color:#fff;width: 100%;">
+                    <img style="margin-bottom: 0px;border-radius: 50%;border:3px solid #ffff;border-color: #fff;width: 140px;margin-bottom:10px;" src="{% static 'app/img/uniperzicono.png' %}" />
+                    <h2 style="font-weight: bold;">¡Hola, {{ user.username }}!<br>¡Recomendamos esto para ti!</h2>
+                </div>
+            </div>
+        
+        
+        </div>  
+        <br><br>
+        <div style="width:100%;margin-left: 0px;margin-top: -80px;">
+            <div style="width:100%;position:relative;">
+                <div style="position:center;width:40%;margin-left: 30%;">
+                <div style="background-color: #fff;border-radius:20px;box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;width:100%;padding-top:10px;padding-bottom:10px;">
+                    <!--
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+                    method="POST">
+                    -->
+                    <form class="" method="POST" style="background-color: #fff;border-radius:20px;">
+                    {% csrf_token %}
+                    <div class="input-group" style="">
+                        <input type="text" style="margin-left: 2%;background-color: #fff;border-radius:20px;" class="form-control bg-light border-0 small" placeholder="Buscar" name="buscar" value="{{ request.POST.buscar }}">
+                        
+                        {% if color == 1 %}
+                        <button class="btn btn-primary" type="submit" style="width:15%;margin-right: 2%;margin-left: 2%;border-radius:20px;background-color:#fff;color:#ff7300;
+                        border: 2px solid #ff7300;">
+                            Buscar<i class="fas fa-search fa-sm"></i>
+                        </button>
+                        {% elif color == 2 %}
+                        <button class="btn btn-primary" type="submit" style="width:15%;margin-right: 2%;margin-left: 2%;border-radius:20px;background-color:#fff;color:#2d2d9a;
+                        border: 2px solid #2d2d9a;">
+                            Buscar<i class="fas fa-search fa-sm"></i>
+                        </button>
+                        {% else %}
+                        <button class="btn btn-primary" type="submit" style="width:15%;margin-right: 2%;margin-left: 2%;border-radius:20px;background-color:#fff;color:#6e53be;
+                        border: 2px solid #6e53be;">
+                            Buscar<i class="fas fa-search fa-sm"></i>
+                        </button>
+                        {% endif %}
+                        
+                    </div>
+                    </form>
+        
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="width:100%;padding-left: 10px;">
+
+            
+            <br><br>
+            {% if color == 1 %}
+            <h2 style="color:#ff7300;text-align: center;font-weight: bold;">Campañas</h2>
+            {% elif color == 2 %}
+            <h2 style="color:#2d2d9a;text-align: center;font-weight: bold;">Campañas</h2>
+            {% else %}
+            <h2 style="color:#692bb0;text-align: center;font-weight: bold;">Campañas</h2>
+            {% endif %}
+            
+
+        
+        </div>
+
+        
+        
+        <div style="width:100%;padding-left: 20px;">
+        
+
+
+        {% endblock buscador %}
+
+        </div>
+
+        <div style="padding-left: 20px;">
+            
+            <div style="padding-left: 2%;padding-right: 2%;">
+
+                <br><br>
+                
+
+                <div class="productos">
+                    {% for p in campana %}
+                    <div class="producto">
+
+                        <div class="contenedor_producto"  style="box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;">
+                            {% if p.cam_imagen %}
+                            <a href="/testing/interacciones/{{p.slug}}"> <img src="{{ p.cam_imagen.url }}" alt="imagen producto"> </a>
+
+                            {% endif %}
+                            <div class="detalle">
+                                
+                                {% if color == 1 %}
+                                <h5 style="color:#ff7300;text-align: center;font-size: 18px;font-weight: bold;">{{ p.cam_nombre | capfirst }}</h5>
+                                {% elif color == 2 %}
+                                <h5 style="color:#2d2d9a;text-align: center;font-size: 18px;font-weight: bold;">{{ p.cam_nombre | capfirst }}</h5>
+                                {% else %}
+                                <h5 style="color:#692bb0;text-align: center;font-size: 18px;font-weight: bold;">{{ p.cam_nombre | capfirst }}</h5>
+                                {% endif %}
+
+                                
+                                
+                                <h5 style="color:#383838;text-align: center;font-size: 18px;">{{ p.cam_detalles | intcomma }}</h5>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    {% endfor %}
+            </div>
+        </div>
+
+        {% endif %}
+
+        
+    {% endfor %}
+
+
+
+
+
+
+{% endif %}
+
+{% if not user.is_authenticated %}
+<br><br>
+<h5>Debe iniciar sesión para acceder a las campañas</h5>
+
+
+{% endif %}
+
+
+
+
+{% endblock %}

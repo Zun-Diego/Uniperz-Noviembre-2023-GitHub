@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 127.78 115.91">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+    </style>
+    <symbol id="head-rhombus_white_hairless" viewBox="0 0 78 110">
+      <g>
+        <path class="cls-1" d="m64.6,87.8l-16,12c-5.69,4.27-13.51,4.27-19.2,0l-16-12c-4.03-3.02-6.4-7.76-6.4-12.8v-40C7,17.33,21.33,3,39,3h0c17.67,0,32,14.33,32,32v40c0,5.04-2.37,9.78-6.4,12.8Z"/>
+        <rect class="cls-2" width="78" height="110"/>
+      </g>
+    </symbol>
+  </defs>
+  <use width="78" height="110" transform="translate(28.56 8.69) scale(.91)" xlink:href="#head-rhombus_white_hairless"/>
+</svg>

@@ -1,0 +1,42 @@
+Pseudo Código Encuesta:
+
+
+Generar Encuesta():
+	Generar lista "Preguntas".
+	Generar lista "Proposiciones".
+	Do:
+		Escribir pregunta
+
+		Verificar si la pregunta está bien:
+			Si está bien:
+				Agregar pregunta a lista "Preguntas"
+			Si no:
+				Permitir cambio de pregunta.
+
+		Do:
+			Escribir proposicion de respuestas
+			Verificar si la respuesta está bien:
+				Si está bien:
+					Agregar respuesta a lista "Proposiciones"
+				Si no:
+					Permitir cambio de respuesta
+			Verificar si se quieren agregar más respuestas
+				Si no se quieren agregar más:
+					fin iter.
+		While(Hayan respuestas pendientes que agregar)
+
+		Agregar la lista "Proposiciones" a la lista "Preguntas"
+		Verificar si se quieren agregar más preguntas
+				Si no se quieren agregar más:
+					fin iter.
+	While(Hayan preguntas pendientes que agregar)
+
+
+
+Almacenar respuesta():
+	Crear Lista vacía "respuestas"
+	iteracion por cantidad de preguntas:
+		Guardar respuesta en lista "respuestas"
+
+	Verificar que respuestas estén completas().
+	Subir respuestas a Base de datos.

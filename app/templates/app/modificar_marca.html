@@ -1,0 +1,225 @@
+{% extends 'app/base.html' %}
+
+{% block contenido %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+<div style="width:95%;height:120px;padding-left: 100px;">
+
+    <div style="width: 100px;
+    min-width: 100px; 
+    float: left;
+    height: 100%;
+    top: 50%;">
+        <div style="width: 60px;
+                    position: center;
+                    margin-left: 30px;
+                    ">
+            <img src="{% static 'app/img/plataforma_clientes/Menú/perfil.svg' %}" style="margin-top: 50%;" class="filteritazul">
+        </div>
+    </div>
+
+    <div style="width: 100px;
+    float: left;
+    height: 100%;
+    top: 50%;">
+        <div style="width: 60px;
+        position: center;
+        margin-left: 10px;
+        ">
+        <h3 style="padding-top: 70%;color:#2f2f5d;">Perfil</h3>
+        </div>
+        
+    </div>
+
+
+</div> 
+
+<div style="margin-left: 115px;margin-right: 50px;border: 3px solid #fff;padding: 20px;margin-top:-20px;">
+
+    <div  style="width: 150px;
+    float: left;">
+      <div><a style="text-decoration:none;color:#2f2f5d;font-size: 16px;margin-left:-40px;font-weight: bold;" href="{% url 'conf_marca' %}"><h5 style="font-weight: bold;">Perfil Marca</h5></a></div>
+    </div>
+    
+    <div  style="width: 200px;
+    float: left;">
+      <div><a style="text-decoration:none;color:#878787;font-size: 16px;margin-left:-20px;font-weight: bold;" href="{% url 'marca_cambiar_contraseña' id %}"><h5 style="font-weight: bold;">Cambiar Contraseña</h5></a></div>
+    </div>
+    
+</div>
+
+<br><br><br>
+
+<div style="width:90%;height:750px;margin-left: 132px;margin-top: 5px;">
+
+    <div style="width: 40%;
+    
+    float: left;
+    height: 750px;
+    top: 50%;
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;">
+        <div style="width: 100%;
+                    position: center;
+                    display: flex;
+                    justify-content: center;
+                    margin-top:60px;">
+        
+        <img style="border-radius: 50%;object-fit: cover;height:140px;border:3px solid #ffff;border-color: #2f2f5d;width: 140px;margin-bottom:10px;" src="{{ marca.mar_imagen_persona.url }}" />
+        
+        
+        </div>
+        <br>
+        <h5 style="color:#2f2f5d;text-align: center;">{{ marca.mar_nombre }} {{ marca.mar_apellido }}</h5>
+        <h5 style="color:#383838;text-align: center;">{{ marca.mar_cargo }}</h5>
+        <br>
+        <h5 style="color:#383838;text-align: center;">{{ marca.mar_mail }}</h5>
+        
+        {% if marca.mar_imagen %}
+        <div style="width: 100%;
+                    position: center;;
+                    display: flex;
+                    justify-content: center;
+                    margin-top:60px;">
+            
+            <img style="width: 200px;height: 120px;object-fit: contain;" src="{{ marca.mar_imagen.url }}" />
+        </div>
+        {% else %}
+        <h5>no hay imagen</h5>
+        {% endif %}
+
+    </div>
+
+    <div style="width: 30px;
+    float: left;
+    height: 100%;
+    top: 50%;">
+        <div style="width: 60px;
+        position: center;
+        margin-left: 0px;
+        ">
+        </div>
+        
+    </div>
+
+    <div style="width: 50%;
+    float: left;
+    height: 100%;
+    top: 50%;
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;">
+        <div style="width: 100%;
+        position: center;
+        margin-left: 40px;
+        margin-top: 40px;
+        height: 100%;
+        ">
+            <form action="" method="post" enctype="multipart/form-data" style="height: 100%;margin-right:40px;">
+
+                {% csrf_token %}
+                
+                {% for field in form.visible_fields %}
+                    <div class="form-group" style="margin-right: 40px;margin-top:-10px;" >
+
+                        
+                        {{ field | as_crispy_field}}
+                            
+                    </div>
+                <br>
+                {% endfor %}
+
+                
+                
+                
+
+                    
+                
+                <div style="width:100%;height: 100 px;">
+
+                    <div class="" style="margin-top: 0px;"> 
+
+                        <input type="submit" value="Guardar" class="btn btn-primary" style="margin-top: 0px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">
+    
+                    </div>
+
+                </div>
+                
+
+                
+
+            </form>
+            <!--
+            <form>
+                <div class="form-group" style="100%">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+              -->
+
+        </div>
+        
+    </div>
+
+    <div style="width: 20px;
+    float: left;
+    height: 100%;
+    top: 50%;">
+        <div style="width: 60px;
+        position: center;
+        margin-left: 10px;
+        ">
+        </div>
+        
+    </div>
+
+
+</div> 
+
+<!--
+<br><br>
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+
+        <div class="card">
+            <div class="card-body">
+
+                <h2>Modificar Imagen de Marca</h2>
+                <hr>
+
+                <form action="" method="post" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+
+                    {{ form | crispy }}
+
+                    <div class="d-flex justify-content-end"> 
+
+                        <input type="reset" value="Cancelar" class="btn btn-secondary">
+                        &nbsp;
+                        <input type="submit" value="Guardar" class="btn btn-primary">
+
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+-->
+{% endblock %}

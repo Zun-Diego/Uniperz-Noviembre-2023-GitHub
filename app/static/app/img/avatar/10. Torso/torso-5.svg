@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 127.78 115.91">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 4px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #000;
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+    <symbol id="Body-woman.neckline-short-black-white" viewBox="0 0 90 80">
+      <g>
+        <g>
+          <path class="cls-1" d="m79,72v-9.37c0-5.93-3.28-11.37-8.51-14.14l-16.49-8.73v-21.76h-18v22.06l-14.84,8.35c-5.04,2.83-8.16,8.16-8.16,13.95v9.64"/>
+          <g>
+            <path class="cls-3" d="m62,48c0,4.97-8.72,18-17,18s-17-13.03-17-18,8.72-8,17-8,17,3.03,17,8Z"/>
+            <polyline class="cls-3" points="54 48 54 46 54 18 36 18 36 48 36 46"/>
+          </g>
+          <line class="cls-2" x1="45" y1="59" x2="45" y2="66"/>
+        </g>
+        <rect class="cls-4" width="90" height="80"/>
+      </g>
+    </symbol>
+  </defs>
+  <use width="90" height="80" transform="translate(16.35 16.66)" xlink:href="#Body-woman.neckline-short-black-white"/>
+</svg>

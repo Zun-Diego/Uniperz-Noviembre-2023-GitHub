@@ -1,0 +1,65 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+      $('.slider').bxSlider({
+          mode: 'fade',//horizontal, vertical, fade
+          auto: true,
+          pause: 2000
+      });
+    });
+</script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+{% endblock %}
+
+{% block contenido %}
+
+<!--
+<div class="slider">
+    <div>
+        <img src="{% static 'app/img/banner/banner1.png' %}" alt="">
+    </div>
+    <div>
+        <img src="{% static 'app/img/banner/banner2.png' %}" alt="">
+    </div>
+    <div>
+        <img src="{% static 'app/img/banner/banner3.png' %}" alt="">
+    </div>
+</div>
+-->
+{% load crispy_forms_tags %}
+
+{% load humanize %}
+<div style="margin-left:50px;
+margin-right: 30px;
+">
+    <br>
+    <h2>Recomendar</h2>
+
+    <br>
+    <h5>Recomienda a un familiar o amigo</h5>
+
+    <form action="" method="post" enctype="multipart/form-data">
+
+        {% csrf_token %}
+        {{ form3 | crispy }}
+
+        <div class="d-flex justify-content-end"> 
+
+            <input type="reset" value="Cancelar" class="btn btn-secondary">
+            &nbsp;
+            <input type="submit" value="Completar Desafío" class="btn btn-primary">
+
+        </div>
+
+    </form>
+</div>
+{% endblock %}

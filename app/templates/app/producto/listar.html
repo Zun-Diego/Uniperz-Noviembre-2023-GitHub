@@ -1,0 +1,164 @@
+{% extends 'app/base.html' %}
+
+{% block js %}
+<script>
+
+    function eliminarCampana(id) {
+        Swal.fire({
+
+            "title":"¿Estás Seguro?",
+            "text":"esta acción no se puede deshacer",
+            "icon":"question",
+            "showCancelButton":true,
+            "cancelButtonText":"No, Cancelar",
+            "confirmButtonText":"Sí, Eliminar",
+            "reverseButtons":true,
+            "confirmButtonColor":"#dc3545",
+        
+        })
+        .then(function(result) {
+
+            if(result.isConfirmed){
+                window.location.href = "/eliminar-campana/"+id+"/"
+            }
+        })
+    }
+
+</script>
+
+{% endblock %}
+
+{% block contenido %}
+{% load humanize %}
+
+{% load static %}
+
+<div style="width:95%;height:120px;padding-left: 100px;">
+
+    <div style="width: 100px;
+    min-width: 100px; 
+    float: left;
+    height: 100%;
+    top: 50%;">
+        <div style="width: 60px;
+                    position: center;
+                    margin-left: 30px;
+                    ">
+            <img src="{% static 'app/img/plataforma_clientes/Menú/configuracion.svg' %}" style="margin-top: 50%;" class="filteritazul">
+        </div>
+    </div>
+
+    <div style="width: 100px;
+    float: left;
+    height: 100%;
+    top: 50%;">
+        <div style="width: 60px;
+        position: center;
+        margin-left: 10px;
+        ">
+        <h3 style="padding-top: 70%;color:#2f2f5d;">Configuración</h3>
+        </div>
+        
+    </div>
+
+
+</div>
+
+
+<div style="margin-left: 115px;margin-right: 50px;border: 3px solid #fff;padding: 20px;margin-top:-20px;">
+
+    <div  style="width: 150px;
+    float: left;">
+      <div><a style="text-decoration:none;color:#2f2f5d;font-size: 16px;margin-left:-40px;font-weight: bold;" href="{% url 'listar_campanas' %}"><h5 style="font-weight: bold;">Mis campañas</h5></a></div>
+    </div>
+    
+    <div  style="width: 150px;
+    float: left;">
+      <div><a style="text-decoration:none;color:#878787;font-size: 16px;margin-left:-20px;font-weight: bold;" href="{% url 'agregar_campana' %}"><h5 style="font-weight: bold;">Crear campañas</h5></a></div>
+    </div>
+    
+</div>
+ <br><br><br>
+
+
+<div style="margin-left: 132px;margin-right: 50px;">
+
+
+    <div style="border-radius:20px;box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;margin:20 px;">
+        <div >
+
+            <div style="height: 45px;background-color: #2f2f5d;border-radius:20px 20px 0px 0px;">
+                <h5 align="center" style="padding-top: 10px;color:#fff;font-size: 18px;">Mis campañas</h5>
+            </div>
+
+
+            <table class="table table-hover table-responsive-sm" >
+
+                <tr >
+                    <th style="color:#2f2f5d;padding-left: 40px;">Nombre</th>
+                    <th style="color:#2f2f5d;">Estado</th>
+                    <th style="color:#2f2f5d;">ID</th>
+                    <th style="color:#2f2f5d;">Dashboard</th>
+                    <th style="color:#2f2f5d;padding-right: 40px;">Editar/Eliminar</th>
+                </tr>
+                
+                {% for p in entity %}
+                        
+                        
+                        <tr>
+                            
+                                <td style="padding-left: 40px;">{{ p.cam_nombre | title }}</td>
+
+                                {% if p.cam_estado == 0 %}
+                                <td>Default</td>
+                                {% endif %}
+                                {% if p.cam_estado == 1 %}
+                                <td style="color: red;">Pendiente</td>
+                                {% endif %}
+                                {% if p.cam_estado == 2 %}
+                                <td style="color: rgb(255, 196, 0);">Activa</td>
+                                {% endif %}
+                                {% if p.cam_estado == 3 %}
+                                <td style="color: rgb(0, 189, 0);">Terminada</td>
+                                {% endif %}
+
+                                <td>{{ p.id}}</td>
+                                <div style="padding-top: -5px;">
+                                <td>&emsp;<a href="{% url 'dashboard_campana' p.id %}" class=""><img src="{% static 'app/img/plataforma_clientes/Páginas/Mis campañas/dashboard.svg' %}" style="width:35px;" class="filteritazul" alt=""></a></td>
+                                </div>
+                                
+                                <td>
+                                    
+                                    {% if perms.app.change_campana %}
+                                        {% if p.cam_estado == 2 or p.cam_estado == 1 %}
+                                        <div style="margin-left:18px;">
+                                            <a href="{% url 'modificar_campana' p.id %}" class=""><img src="{% static 'app/img/plataforma_clientes/Páginas/Mis campañas/editar.svg' %}" style="width:35px;" class="filteritgrisoscuro" alt=""></a>
+                                            <a href="#" onclick="eliminarCampana({{ p.id }})" class=""><img src="{% static 'app/img/plataforma_clientes/Páginas/Mis campañas/eliminar.svg' %}" style="width:25px;" class="" alt=""></a>
+                                        </div>
+                                        {% else %}
+                                        <div style="margin-left:56px;padding-top:3px;">
+                                            <a href="#" onclick="eliminarCampana({{ p.id }})" class=""><img src="{% static 'app/img/plataforma_clientes/Páginas/Mis campañas/eliminar.svg' %}" style="width:25px;" class="" alt=""></a>
+                                        </div>
+                                        {% endif %}
+                                    {% endif %}
+                                    
+                                </td>
+                            
+                        </tr>
+                    
+                    
+                    
+                        
+                {% endfor %}
+                
+            </table>
+            <div>
+                {% include 'app/paginator.html' %}
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}

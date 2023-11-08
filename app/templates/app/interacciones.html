@@ -1,0 +1,524 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+      $('.slider').bxSlider({
+          mode: 'fade',//horizontal, vertical, fade
+          auto: true,
+          pause: 2000
+      });
+    });
+</script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+{% endblock %}
+
+{% block contenido %}
+
+<!--
+<div class="slider">
+    <div>
+        <img src="{% static 'app/img/banner/banner1.png' %}" alt="">
+    </div>
+    <div>
+        <img src="{% static 'app/img/banner/banner2.png' %}" alt="">
+    </div>
+    <div>
+        <img src="{% static 'app/img/banner/banner3.png' %}" alt="">
+    </div>
+</div>
+-->
+
+<div style="width:100%;padding-left: 0px;">
+
+    <div class="contenedor" style="height: 300px;width: 100%;">
+        <img src="{% static 'app/img/fondo paginas (header).svg' %}"
+        
+        style="width: 100%;
+        height: 300px;
+        object-fit: cover;
+        object-position: center;" 
+        />
+        
+        <div class="centrado2" style="color:#fff;width: 100%;">
+            <img style=" width: 70px;margin-bottom:0px;" src="{% static 'app/img/plataforma_usuarios/Menú/4. mi interaccion.svg' %}" class="filteritblanco" />
+            <h2 style="font-weight: bold;">Mi interacción</h2>
+        </div>
+    </div>
+
+
+</div> 
+<br><br>
+        <div style="width:100%;margin-left: 0px;margin-top: -80px;">
+            <div style="width:100%;position:relative;">
+                <div style="position:center;width:40%;margin-left: 30%;">
+                <div style="background-color: #fff;border-radius:20px;box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;width:100%;padding-top:10px;padding-bottom:10px;">
+                    <!--
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+                    method="POST">
+                    -->
+                    <form class="" method="POST" style="background-color: #fff;border-radius:20px;">
+                    {% csrf_token %}
+                    <div class="input-group" style="">
+                        <input type="text" style="margin-left: 2%;background-color: #fff;border-radius:20px;" class="form-control bg-light border-0 small" placeholder="Buscar mi interacción" name="buscar" value="{{ request.POST.buscar }}">
+                        {% if color == 1 %}
+                        <button class="btn btn-primary" type="submit" style="width:15%;margin-right: 2%;margin-left: 2%;border-radius:20px;background-color:#fff;color:#ff7300;
+                        border: 2px solid #ff7300;">
+                        Buscar<i class="fas fa-search fa-sm"></i>
+                        </button>
+                        {% elif color == 2 %}
+                        <button class="btn btn-primary" type="submit" style="width:15%;margin-right: 2%;margin-left: 2%;border-radius:20px;background-color:#fff;color:#2d2d9a;
+                        border: 2px solid #2d2d9a;">
+                        Buscar<i class="fas fa-search fa-sm"></i>
+                        </button>
+                        {% else %}
+                        <button class="btn btn-primary" type="submit" style="width:15%;margin-right: 2%;margin-left: 2%;border-radius:20px;background-color:#fff;color:#6e53be;
+                        border: 2px solid #6e53be;">
+                        Buscar<i class="fas fa-search fa-sm"></i>
+                        </button>
+                        {% endif %}
+                    </div>
+                    </form>
+
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+<div style="padding-left: 20 px;margin-left: 20px;">
+<div style="padding-left: 2%;padding-right: 2%;" >
+{% load humanize %}
+
+{% if user.is_authenticated %}
+
+    {% for group in user.groups.all %}
+        {% if group.name != 'Marca' %}
+
+        {% block buscador %}
+        
+        
+        
+        
+        {% endblock buscador %}
+
+        <br><br>
+
+        <div class="productos">
+
+            {% for categoria in lista_de_categorias %}
+
+            <div class="producto">
+        
+                <div class="contenedor_producto" style="border-radius:20px;box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;">
+                    
+                    {% if categoria == 1 %}
+                    <!---->
+                    <div style="height: 70px;">
+                        <div style="margin-top:0px;">
+                            <div style="float:left">
+                                {% if color == 1 %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/tecnologia.svg' %}" alt="" class="" style="width: 70px;height: auto;filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);"> </a>
+                                        
+                                        {% elif color == 2 %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/tecnologia.svg' %}" alt="" class="" style="width: 70px;height: auto;filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);"> </a>
+                                        
+                                        {% else %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/tecnologia.svg' %}" alt="" class="filterit" style="width: 70px;height: auto;"> </a>
+                                        {% endif %}
+                            </div>
+                            
+                            <div style="float:left">
+                                <h5 style="font-size: 18px;padding-left:15px;padding-top:22px;font-weight: bold;color:grey;">Tecnología</h5>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if categoria == 2 %}
+                    <div style="height: 70px;">
+                        <div style="margin-top:0px;">
+                            <div style="float:left">
+                                {% if color == 1 %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/salud y belleza.svg' %}" alt="" class="" style="width: 70px;height: auto;filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);"> </a>
+                                        
+                                        {% elif color == 2 %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/salud y belleza.svg' %}" alt="" class="" style="width: 70px;height: auto;filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);"> </a>
+                                        
+                                        {% else %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/salud y belleza.svg' %}" alt="" class="filterit" style="width: 70px;height: auto;"> </a>
+                                        {% endif %}</div>
+                            
+                            <div style="float:left">
+                                <h5 style="font-size: 18px;padding-left:15px;padding-top:22px;font-weight: bold;color:grey;">Salud y Belleza</h5>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if categoria == 3 %}
+                    <div style="height: 70px;">
+                        <div style="margin-top:0px;">
+                            <div style="float:left">
+                                {% if color == 1 %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/gastronomia.svg' %}" alt="" class="" style="width: 70px;height: auto;filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);"> </a>
+                                        
+                                        {% elif color == 2 %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/gastronomia.svg' %}" alt="" class="" style="width: 70px;height: auto;filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);"> </a>
+                                        
+                                        {% else %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/gastronomia.svg' %}" alt="" class="filterit" style="width: 70px;height: auto;"> </a>
+                                        {% endif %}</div>
+                            
+                            <div style="float:left">
+                                <h5 style="font-size: 18px;padding-left:15px;padding-top:22px;font-weight: bold;color:grey;">Gastronomía</h5>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if categoria == 4 %}
+                    <div style="height: 70px;">
+                        <div style="margin-top:0px;">
+                            <div style="float:left">
+                                {% if color == 1 %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/deportes y outdoor.svg' %}" alt="" class="" style="width: 70px;height: auto;filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);"> </a>
+                                        
+                                        {% elif color == 2 %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/deportes y outdoor.svg' %}" alt="" class="" style="width: 70px;height: auto;filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);"> </a>
+                                        
+                                        {% else %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/deportes y outdoor.svg' %}" alt="" class="filterit" style="width: 70px;height: auto;"> </a>
+                                        {% endif %} </div>
+                            
+                            <div style="float:left">
+                                <h5 style="font-size: 18px;padding-left:15px;padding-top:22px;font-weight: bold;color:grey;">Deportes y Outdoor</h5>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if categoria == 5 %}
+                    <div style="height: 70px;">
+                        <div style="margin-top:0px;">
+                            <div style="float:left">
+                                {% if color == 1 %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/vestuario y calzado.svg' %}" alt="" class="" style="width: 70px;height: auto;filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);"> </a>
+                                        
+                                        {% elif color == 2 %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/vestuario y calzado.svg' %}" alt="" class="" style="width: 70px;height: auto;filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);"> </a>
+                                        
+                                        {% else %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/vestuario y calzado.svg' %}" alt="" class="filterit" style="width: 70px;height: auto;"> </a>
+                                        {% endif %}
+
+                            </div>
+                            
+                            <div style="float:left">
+                                <h5 style="font-size: 18px;padding-left:15px;padding-top:22px;font-weight: bold;color:grey;">Vestuario y Calzado</h5>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if categoria == 6 %}
+                    <div style="height: 70px;">
+                        <div style="margin-top:0px;">
+                            <div style="float:left">
+                                {% if color == 1 %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/mascotas.svg' %}" alt="" class="" style="width: 70px;height: auto;filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);"> </a>
+                                        
+                                        {% elif color == 2 %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/mascotas.svg' %}" alt="" class="" style="width: 70px;height: auto;filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);"> </a>
+                                        
+                                        {% else %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/mascotas.svg' %}" alt="" class="filterit" style="width: 70px;height: auto;"> </a>
+                                        {% endif %}</div>
+                            
+                            <div style="float:left">
+                                <h5 style="font-size: 18px;padding-left:15px;padding-top:22px;font-weight: bold;color:grey;">Mascotas</h5>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if categoria == 7 %}
+                    <div style="height: 70px;">
+                        <div style="margin-top:0px;">
+                            <div style="float:left">
+                                {% if color == 1 %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/turismo y viajes.svg' %}" alt="" class="" style="width: 70px;height: auto;filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);"> </a>
+                                        
+                                        {% elif color == 2 %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/turismo y viajes.svg' %}" alt="" class="" style="width: 70px;height: auto;filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);"> </a>
+                                        
+                                        {% else %}
+                                        <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/turismo y viajes.svg' %}" alt="" class="filterit" style="width: 70px;height: auto;"> </a>
+                                        {% endif %}</div>
+                            
+                            <div style="float:left">
+                                <h5 style="font-size: 18px;padding-left:15px;padding-top:22px;font-weight: bold;color:grey;">Turismo y Viajes</h5>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if categoria == 8 %}
+                    <div style="height: 70px;">
+                        <div style="margin-top:0px;">
+                            <div style="float:left">
+                                {% if color == 1 %}
+                                <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/infantil.svg' %}" alt="" class="" style="width: 70px;height: auto;filter: invert(38%) sepia(7%) saturate(7407%) hue-rotate(10deg) brightness(85%) contrast(500%);"> </a>
+                                
+                                {% elif color == 2 %}
+                                <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/infantil.svg' %}" alt="" class="" style="width: 70px;height: auto;filter: invert(25%) sepia(100%) saturate(6633%) hue-rotate(251deg) brightness(60%) contrast(159%);"> </a>
+                                
+                                {% else %}
+                                <a href=""> <img src="{% static 'app/img/plataforma_usuarios/Categorías/infantil.svg' %}" alt="" class="filterit" style="width: 70px;height: auto;"> </a>
+                                {% endif %} </div>
+                            
+                            <div style="float:left">
+                                <h5 style="font-size: 18px;padding-left:15px;padding-top:22px;font-weight: bold;color:grey;">Infantil</h5>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    
+        
+                </div>
+        
+            </div>
+
+            {% endfor %}
+
+        </div>
+        
+            <!--
+            <div class="productos">
+                {% for p in campana %}
+                <div class="producto">
+            
+                    <div class="contenedor_producto">
+                        {% if p.cam_imagen %}
+                        <a href="{{p.slug}}"> <img src="{{ p.cam_imagen.url }}" alt="imagen producto"> </a>
+                        
+                        {% endif %}
+                        <div class="detalle">
+                            <h5>{{ p.cam_nombre | capfirst }}</h5>
+                            <h2>{{ p.cam_medallas | intcomma }} Medallas</h2>
+                        </div>
+            
+                    </div>
+            
+                </div>
+                {% endfor %}
+            </div>
+            -->
+
+            <div class="productos">
+                {% for marca in marca_list %}
+                <div class="producto">
+            
+                    <div class="contenedor_producto" style="border-radius:20px;box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;height: 100%;">
+                        
+                        {% if color == 1 %}
+                        <div style="
+                            background-color: #ff7300;
+                            height: 50px;
+                            border-radius:20px 20px 0px 0px;
+                            ">
+                        {% elif color == 2 %}
+                        <div style="
+                            background-color: #2d2d9a;
+                            height: 50px;
+                            border-radius:20px 20px 0px 0px;
+                            ">
+                        {% else %}
+                        <div style="
+                            background-color: #692bb0;
+                            height: 50px;
+                            border-radius:20px 20px 0px 0px;
+                            ">
+                        {% endif %}
+                        
+
+                            <div>
+
+                                <div style="float:left;margin-left:10px;">
+
+                                    {% if marca.mar_categoria.id == 1 %}
+                                    <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="{% static 'app/img/plataforma_usuarios/Categorías/tecnologia.svg' %}" alt="" class="filteritblanco">
+                                    {% endif %}
+                                    {% if marca.mar_categoria.id == 2 %}
+                                    <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="{% static 'app/img/plataforma_usuarios/Categorías/salud y belleza.svg' %}" alt="" class="filteritblanco">
+                                    {% endif %}
+                                    {% if marca.mar_categoria.id == 3 %}
+                                    <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="{% static 'app/img/plataforma_usuarios/Categorías/gastronomia.svg' %}" alt="" class="filteritblanco">
+                                    {% endif %}
+                                    {% if marca.mar_categoria.id == 4 %}
+                                    <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="{% static 'app/img/plataforma_usuarios/Categorías/deportes y outdoor.svg' %}" alt="" class="filteritblanco">
+                                    {% endif %}
+                                    {% if marca.mar_categoria.id == 5 %}
+                                    <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="{% static 'app/img/plataforma_usuarios/Categorías/vestuario y calzado.svg' %}" alt="" class="filteritblanco">
+                                    {% endif %}
+                                    {% if marca.mar_categoria.id == 6 %}
+                                    <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="{% static 'app/img/plataforma_usuarios/Categorías/mascotas.svg' %}" alt="" class="filteritblanco">
+                                    {% endif %}
+                                    {% if marca.mar_categoria.id == 7 %}
+                                    <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="{% static 'app/img/plataforma_usuarios/Categorías/turismo y viajes.svg' %}" alt="" class="filteritblanco">
+                                    {% endif %}
+                                    {% if marca.mar_categoria.id == 8 %}
+                                    <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="{% static 'app/img/plataforma_usuarios/Categorías/infantil.svg' %}" alt="" class="filteritblanco">
+                                    {% endif %}
+                                    {% if marca.mar_categoria.id == 0 %}
+                                    <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="" alt="" class="filteritblanco">
+                                    {% endif %}
+
+                                </div>
+                                <div style="float:left;margin-top:10px;margin-left:10px;">
+
+                                    <h5 style="font-weight: bold;color:#fff;">{{ marca.mar_categoria | capfirst }}</h5>
+
+                                </div>
+                            </div>
+
+                            
+
+                        </div>
+
+                        <div>
+
+                            <div style="width:45%;float: left;">
+
+                                {% if marca.mar_imagen %}
+                                <!--
+                                <a href="/marca_detalles/{{marca.mar_creador}}">  </a>
+                                
+                                -->
+                                
+                                <img style="border-radius:0px 0px 0px 20px;" src="{{ marca.mar_imagen.url }}" alt="imagen producto">
+                                
+                                {% endif %}
+    
+                            </div>
+    
+                            <div style="width: 55%;float: left;">
+
+                                <div style="margin-top:30%;margin-left:10px;margin-right: 10px;">
+                                    {% if color == 1 %}
+                                    <h5 style="font-weight: bold;color:#ff7300;text-align: center;">Desafíos de {{ marca | capfirst }}</h5>
+                                    <a href="{% url 'interacciones_detalles' marca.mar_creador.id %}" style="margin-left:20%;width:60%;font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#ff7300;border: 2px solid #ff7300;" class="btn btn-info btn-sm" >Detalles</a>
+                                    {% elif color == 2 %}
+                                    <h5 style="font-weight: bold;color:#2d2d9a;text-align: center;">Desafíos de {{ marca | capfirst }}</h5>
+                                    <a href="{% url 'interacciones_detalles' marca.mar_creador.id %}" style="margin-left:20%;width:60%;font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#2d2d9a;border: 2px solid #2d2d9a;" class="btn btn-info btn-sm" >Detalles</a>
+                                    {% else %}
+                                    <h5 style="font-weight: bold;color:#692bb0;text-align: center;">Desafíos de {{ marca | capfirst }}</h5>
+                                    <a href="{% url 'interacciones_detalles' marca.mar_creador.id %}" style="margin-left:20%;width:60%;font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#692bb0;border: 2px solid #692bb0;" class="btn btn-info btn-sm" >Detalles</a>
+                                    {% endif %}
+                                    
+                                </div>
+    
+                                   
+                                
+    
+                            </div>
+                            
+                        </div>
+
+                        
+                        
+
+                        <!--
+
+                        <div style="
+                        display: block;
+                        width: calc(27px + 50%);
+                        height: 20px;
+                        text-align: center;
+                        position: relative;
+                        float:left;
+                        ">
+                            <div style="
+                            
+                            position: relative;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                            background-color: #692bb0;
+                            border: 1px solid white;
+                            text-align: right;
+                            float:right;
+                            margin-top:-25px;
+                            ">
+                                {% if marca.mar_categoria.id == 1 %}
+                                <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="{% static 'app/img/plataforma_usuarios/Categorías/tecnologia.svg' %}" alt="" class="filteritblanco">
+                                {% endif %}
+                                {% if marca.mar_categoria.id == 2 %}
+                                <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="{% static 'app/img/plataforma_usuarios/Categorías/salud y belleza.svg' %}" alt="" class="filteritblanco">
+                                {% endif %}
+                                {% if marca.mar_categoria.id == 3 %}
+                                <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="{% static 'app/img/plataforma_usuarios/Categorías/gastronomia.svg' %}" alt="" class="filteritblanco">
+                                {% endif %}
+                                {% if marca.mar_categoria.id == 4 %}
+                                <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="{% static 'app/img/plataforma_usuarios/Categorías/deportes y outdoor.svg' %}" alt="" class="filteritblanco">
+                                {% endif %}
+                                {% if marca.mar_categoria.id == 5 %}
+                                <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="{% static 'app/img/plataforma_usuarios/Categorías/vestuario y calzado.svg' %}" alt="" class="filteritblanco">
+                                {% endif %}
+                                {% if marca.mar_categoria.id == 6 %}
+                                <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="{% static 'app/img/plataforma_usuarios/Categorías/mascotas.svg' %}" alt="" class="filteritblanco">
+                                {% endif %}
+                                {% if marca.mar_categoria.id == 7 %}
+                                <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="{% static 'app/img/plataforma_usuarios/Categorías/turismo y viajes.svg' %}" alt="" class="filteritblanco">
+                                {% endif %}
+                                {% if marca.mar_categoria.id == 8 %}
+                                <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="{% static 'app/img/plataforma_usuarios/Categorías/infantil.svg' %}" alt="" class="filteritblanco">
+                                {% endif %}
+                                {% if marca.mar_categoria.id == 0 %}
+                                <img style="float: left;width: 40px;height:40px;margin-left:4px;margin-top:3px;" src="" alt="" class="filteritblanco">
+                                {% endif %}
+                                
+                                
+                            </div>
+
+                            
+
+                        </div>
+                        
+                        <div class="detalle" style="text-align: center;margin-top: 2%;padding-top:30px;padding-bottom:20px;">
+                            <h5 style="font-weight: bold;color:#692bb0;">Desafíos de {{ marca | capfirst }}</h5>
+                            
+                        </div>
+
+                        -->
+            
+                    </div>
+            
+                </div>
+            {% endfor %}
+            </div>
+
+        {% endif %}
+    {% endfor %}
+
+
+    
+            
+        
+
+{% endif %}
+    
+{% if not user.is_authenticated %}
+<br><br>
+<h5>Debe iniciar sesión para acceder a las campañas</h5>
+
+
+{% endif %}
+
+
+
+</div>
+</div>
+{% endblock %}

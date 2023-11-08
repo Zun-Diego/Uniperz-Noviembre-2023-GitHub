@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 127.78 115.91">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 4px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #000;
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+    <symbol id="Body-woman.neckline-midle-black-white" viewBox="0 0 90 80">
+      <g>
+        <g>
+          <path class="cls-1" d="m79,72v-15.37c0-5.93-3.28-11.37-8.51-14.14l-16.49-8.73V12h-18v22.06l-14.84,8.35c-5.04,2.83-8.16,8.16-8.16,13.95v15.64"/>
+          <path class="cls-3" d="m62,41c0,4.97-9.82,20-17,20s-17-15.03-17-20,9.82-6,17-6,17,1.03,17,6Z"/>
+          <polyline class="cls-3" points="54 42 54 40 54 12 36 12 36 42 36 40"/>
+          <line class="cls-2" x1="45" y1="55" x2="45" y2="61"/>
+        </g>
+        <rect class="cls-4" width="90" height="80"/>
+      </g>
+    </symbol>
+  </defs>
+  <use width="90" height="80" transform="translate(16.16 20.41)" xlink:href="#Body-woman.neckline-midle-black-white"/>
+</svg>

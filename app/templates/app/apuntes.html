@@ -1,0 +1,107 @@
+<!--
+                
+                <div style="width:100%;height: 110px;">
+
+                    <div class="form-group" style="width:45%;float: left;">
+
+                        {{ form.mar_nombre|as_crispy_field }}
+                    </div>
+
+                    
+    
+                    <div class="form-group" style="width:45%;float: left;margin-left: 30px;">
+                        {{ form.mar_apellido|as_crispy_field }}
+                    </div>
+
+                </div>
+
+                <div style="width:100%;height: 110px;">
+
+                    <div class="form-group" style="width:45%;float: left;margin-top: 10px;">
+                        {{ form.mar_mail|as_crispy_field }}
+                    </div>
+
+                    
+    
+                    <div class="form-group" style="width:45%;float: left;margin-left: 30px;margin-top: 10px;">
+                        {{ form.mar_telefono|as_crispy_field }}
+                    </div>
+
+                </div>
+
+                <div style="width:100%;height: 90px;">
+
+                    {% if marca.mar_imagen %}
+                    <div style="width: 100%;
+                                position: left;
+                                display: flex;
+                                justify-content: left;
+                                margin-top: 10px;
+                                ;">
+                        
+                        <img style="width: 120px;height: 75px;object-fit: contain;" src="{{ marca.mar_imagen.url }}" />
+                    </div>
+                    {% else %}
+                    <h5>no hay imagen</h5>
+                    {% endif %}
+
+                    
+
+                </div>
+
+                <div style="width:100%;height: 0px;">
+
+                    <div class="form-group" style="width:45%;float: left;margin-top: 10px;height: 80px;">
+
+                        {{ form.mar_imagen|as_crispy_field }}
+
+                    </div>
+
+                    <div class="form-group" style="margin-left: 30px;width:45%;float: left;margin-top: 10px;height: 80px;">
+
+                        {{ form.mar_imagen_persona|as_crispy_field }}
+
+                    </div>
+
+                    
+
+                </div>
+
+                <div style="width:100%;height: 170px;">
+
+                    <div class="form-group" style="width:45%;float: left;margin-top: 40px;">
+                        {{ form.mar_cargo|as_crispy_field }}
+                    </div>
+
+
+
+                    <div class="form-group" style="width:45%;height: 110px;float: left;margin-left: 40px;margin-top: 40px;">
+                        {{ form2.old_password|as_crispy_field }}
+                    </div>
+
+                </div>
+
+                <div style="width:100%;height: 280px;">
+
+                    <div class="form-group" style="width:45%;height:130px;float: left;margin-top: 10px;;">
+                        {{ form2.new_password1|as_crispy_field }}
+                    </div>
+
+                    
+    
+                    <div class="form-group" style="width:45%;float: left;margin-left: 40px;margin-top: 10px;;">
+                        {{ form2.new_password2|as_crispy_field }}
+                    </div>
+
+                </div>
+                
+                <div style="width:100%;height: 200 px;">
+
+                    <div class="" style="margin-top: 10px;"> 
+
+                        <input type="submit" value="Guardar" class="btn btn-primary" style="margin-top: 50px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">
+    
+                    </div>
+
+                </div>
+                -->
