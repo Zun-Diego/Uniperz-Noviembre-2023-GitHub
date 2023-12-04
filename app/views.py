@@ -170,11 +170,13 @@ def home(request):
 
 def interacciones(request):
 
-
+    
     inter = Interaccion.objects.filter(int_usu_id = request.user)
     inter_list = inter.values_list('int_cam_id', flat=True)
     inter_list = list(inter_list)
     print(inter_list)
+
+    
 
     color = Caracteristicas_Usuario.objects.filter(car_usu_usu_id = request.user.id)
 
@@ -275,6 +277,8 @@ def interacciones(request):
     return render(request,'app/interacciones.html',data)
 
 def interacciones_detalles(request, id):
+
+    
 
     print(request.user)
 
@@ -997,6 +1001,7 @@ def detalles(request, slug_text):
         print("desafio2",desafio2.comparte_o_no)
         print("desafio3",desafio3.recomienda_o_no)
         """
+        print(campana.cam_cantidad_recompensas_canjeadas," < ",campana.cam_cantidad_recompensas )
 
         if interaccion.exists():
 
@@ -1043,6 +1048,7 @@ def detalles(request, slug_text):
 
 
             hay_recompensa_o_no = True
+            
             #hay_recompensa_o_no = False
             print("estado interaccion",inter.int_est_id)
             
@@ -1096,7 +1102,7 @@ def detalles(request, slug_text):
                     print("estado interaccion",inter.int_est_id) #finalizado
                     inter.save()
                     print("recompensa post bucle ",inter.int_recompensa)
-                    if campana.cam_cantidad_recompensas_canjeadas < campana.cam_cantidad_recompensas + 1 and inter.int_recompensa == False:
+                    if campana.cam_cantidad_recompensas_canjeadas < campana.cam_cantidad_recompensas and inter.int_recompensa == False:
 
 
                         
@@ -1106,6 +1112,13 @@ def detalles(request, slug_text):
                         inter.int_recompensa = True
                         inter.save()
 
+                        if campana.cam_cantidad_recompensas_canjeadas == campana.cam_cantidad_recompensas:
+                            
+                            print("se cambia a finalizado, se llenan los cupos")
+                            campana.estado = 3
+                            campana.save()
+
+                        #print(campana.cam_cantidad_recompensas_canjeadas," < ",campana.cam_cantidad_recompensas )
                         
                         #ESTA PARTE PUEDE APUNTA AL DIRECTORIO DE MEDIA
                         fichero_campana = settings.MEDIA_ROOT+"\\"+ str(campana.cam_csv)
@@ -1119,6 +1132,8 @@ def detalles(request, slug_text):
                     else:
 
                         print("recompensas llenas")
+
+                    
 
                 else:
                     recompensa = None

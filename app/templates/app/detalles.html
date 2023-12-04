@@ -1619,9 +1619,11 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;">
                         <h5 style="color:#808080;font-size: 16px;margin-top:-10px;">¿Comenzamos?</h5>
                         <form method="post" action="" >
                             {% csrf_token %}
-                            {% if  interaccion_activa == False %}
+                            {% if  interaccion_activa == False and cantidad_jugadores_con_recompensa < campana.cam_cantidad_recompensas %}
                             <button type="submit" class="btn btn-primary" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:#fff;color:#2f2f5d;border: 2px solid #2f2f5d;">Comenzar Desafío</button>
-                            
+
+                            {% elif cantidad_jugadores_con_recompensa >= campana.cam_cantidad_recompensas %}
+                            <div class="btn" style="font-weight: bold;margin-top: 0px;border-radius:20px;background-color:red;color:#fff;border: 2px solid red;">No existen cupos para Recompensas</div>
                             {% else %}
                                 
                                 {% if inter.int_est_id.id == 1 %}
